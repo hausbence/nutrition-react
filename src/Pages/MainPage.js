@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ListRecipes from "./ListRecipes";
-import {useHistory} from "react-router-dom";
 
 const MainPage = (props) => {
     const [url] = useState(

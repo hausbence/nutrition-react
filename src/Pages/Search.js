@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ListRecipesBySearch from "./ListRecipesBySearch";
+import ListRecipes from "./ListRecipes";
 
 const Search = () => {
     let { searchTerm } = useParams();
@@ -17,7 +17,7 @@ const Search = () => {
         }
     }, [searchTerm])
 
-    return <ListRecipesBySearch url={searchUrl}/>
+    return <ListRecipes url={searchUrl}/>
 }
 
 export default Search;

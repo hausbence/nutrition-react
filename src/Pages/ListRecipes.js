@@ -1,6 +1,5 @@
 import {useHttp} from "../http";
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 
 
 const ListRecipes = (props) => {
@@ -11,7 +10,11 @@ const ListRecipes = (props) => {
 
     useEffect(() => {
         if(fetchedData) {
-            setRecipes(fetchedData.data.recipes)
+            if (fetchedData.data.results === undefined) {
+                setRecipes(fetchedData.data.recipes)
+            } else {
+                setRecipes(fetchedData.data.results)
+            }
         }
     }, [fetchedData])
 
