@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import RandomRecipes from "./RandomRecipes";
+import ListRecipes from "./ListRecipes";
+import {useHistory} from "react-router-dom";
 
 const MainPage = (props) => {
     const [url] = useState(
@@ -10,7 +11,7 @@ const MainPage = (props) => {
         <React.Fragment>
             <div>
                 <div className="App">
-                    <RandomRecipes url={url}/>
+                    <ListRecipes url={url}/>
                 </div>
             </div>
         </React.Fragment>
