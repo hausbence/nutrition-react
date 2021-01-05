@@ -1,9 +1,8 @@
 import {useHttp} from "../http";
 import React, { useState, useEffect } from "react";
-import {Link} from "react-router-dom";
 
 
-const RandomRecipes = (props) => {
+const ListRecipes = (props) => {
     let content;
     const [url] = useState(props.url);
     const [recipes, setRecipes] = useState([]);
@@ -11,7 +10,11 @@ const RandomRecipes = (props) => {
 
     useEffect(() => {
         if(fetchedData) {
-            setRecipes(fetchedData.data.recipes)
+            if (fetchedData.data.results === undefined) {
+                setRecipes(fetchedData.data.recipes)
+            } else {
+                setRecipes(fetchedData.data.results)
+            }
         }
     }, [fetchedData])
 
@@ -19,8 +22,8 @@ const RandomRecipes = (props) => {
 
     if (isLoading) {
         content = (
-            <div className="spinner-border text-dark" role="status">
-                <span className="visually-hidden"/>
+            <div>
+                <h2>Loading...</h2>
             </div>
         );
     }
@@ -52,4 +55,4 @@ const RandomRecipes = (props) => {
     return content;
 }
 
-export default RandomRecipes;
+export default ListRecipes;
