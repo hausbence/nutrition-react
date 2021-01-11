@@ -3,21 +3,19 @@ import { useParams } from "react-router-dom";
 import RecipeList from "./RecipeList";
 
 const Search = () => {
-    let { searchTerm } = useParams();
+	let { searchTerm } = useParams();
 
-    const [searchUrl, setSearchUrl] = useState(
-        `http://localhost:8080/recipes/${searchTerm}`
-    )
+	const [searchUrl, setSearchUrl] = useState(
+		`http://localhost:8080/recipes/${searchTerm}`
+	);
 
-    useEffect(() => {
-        if(searchTerm) {
-            setSearchUrl(
-                `http://localhost:8080/recipes/${searchTerm}`
-            )
-        }
-    }, [searchTerm])
+	useEffect(() => {
+		if (searchTerm) {
+			setSearchUrl(`http://localhost:8080/recipes/${searchTerm}`);
+		}
+	}, [searchTerm]);
 
-    return <RecipeList url={searchUrl}/>
-}
+	return <RecipeList url={searchUrl} />;
+};
 
 export default Search;
