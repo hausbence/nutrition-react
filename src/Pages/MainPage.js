@@ -8,10 +8,8 @@ const MainPage = (props) => {
 
     return (
         <React.Fragment>
-            <div>
-                <div className="App">
-                    <ListRecipes url={url}/>
-                </div>
+            <div className="content">
+                <ListRecipes url={url}/>
             </div>
         </React.Fragment>
     )

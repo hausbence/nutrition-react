@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import MainPage from "./Pages/MainPage";
+import MainPage from "./pages/MainPage";
 import React from "react";
-import Search from "./Pages/Search";
-import Navbar from "./Pages/Navbar";
+import Search from "./pages/Search";
+import Navbar from "./pages/Navbar";
 
 const App= () => {
     return (
