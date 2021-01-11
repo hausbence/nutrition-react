@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListRecipes from "./ListRecipes";
+import RecipeList from "./RecipeList";
 
 const MainPage = (props) => {
     const [url] = useState(
@@ -8,8 +8,8 @@ const MainPage = (props) => {
 
     return (
         <React.Fragment>
-            <div className="content">
-                <ListRecipes url={url}/>
+            <div className="recipes__container">
+                <RecipeList url={url}/>
             </div>
         </React.Fragment>
     )
