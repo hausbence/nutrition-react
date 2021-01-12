@@ -6,7 +6,7 @@ const MainPage = (props) => {
 
 	return (
 		<React.Fragment>
-			<div className="recipes__container">
+			<div className="mainpage__container">
 				<RecipeList url={url} />
 			</div>
 		</React.Fragment>

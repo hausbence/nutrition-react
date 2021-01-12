@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHttp } from "../hooks/http";
+import { Markup } from "interweave";
 
 import "./RecipeList.css";
 
@@ -41,7 +42,10 @@ const RecipeList = (props) => {
 					<Link to={"/recipe/" + recipe.id} key={recipe.id} recipe={recipe}>
 						<div className="recipe__container" key={recipe.id}>
 							<img src={recipe.image} alt={recipe.image} />
-							<div className="recipe__title">{recipe.title}</div>
+							<h2>{recipe.title}</h2>
+							<div className="recipe__summary">
+								<Markup content={recipe.summary} />
+							</div>
 						</div>
 					</Link>
 				))}
