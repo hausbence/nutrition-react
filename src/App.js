@@ -11,6 +11,7 @@ import { useDarkMode } from "./components/useDarkMode";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/Themes";
 import Toggle from "./components/Toggler";
+import SingleRecipe from "./pages/SingleRecipe";
 
 const App = () => {
 	const [theme, themeToggler] = useDarkMode();
@@ -23,10 +24,11 @@ const App = () => {
 				<Switch>
 					<React.Fragment>
 						<div className="App">
-							<Navbar />
 							<Toggle theme={theme} toggleTheme={themeToggler} />
+							<Navbar />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
+							<Route exact path="recipe/:id" component={SingleRecipe} />
 						</div>
 					</React.Fragment>
 				</Switch>

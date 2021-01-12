@@ -1,5 +1,8 @@
-import { useHttp } from "../hooks/http";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useHttp } from "../hooks/http";
+
+import "./RecipeList.css";
 
 const RecipeList = (props) => {
 	let content;
@@ -15,14 +18,7 @@ const RecipeList = (props) => {
 				setRecipes(fetchedData.data.results);
 			}
 		}
-		// if (fetchedData) {
-		//     setRecipes(fetchedData.data.recipes)
-		// }
 	}, [fetchedData]);
-
-	console.log("props", props);
-	console.log(recipes);
-	console.log(fetchedData);
 
 	if (isLoading) {
 		content = (
@@ -32,22 +28,31 @@ const RecipeList = (props) => {
 		);
 	} else {
 		content = (
-			<React.Fragment>
+			<div className="recipes__container">
 				<h2>Sorry, I have no results :(</h2>
-			</React.Fragment>
+			</div>
 		);
 	}
 
 	if (recipes) {
 		content = (
-			<React.Fragment>
+			<div className="recipes__container">
 				{recipes.map((recipe, i) => (
-					<div className="recipe__container" key={i}>
-						<h2>{recipe.title}</h2>
-						<img src={recipe.image} alt={recipe.image} />
-					</div>
+					<Link
+						to={{
+							pathname: "/recipe/" + recipe.id,
+							recipe: recipe,
+						}}
+						key={recipe.id}
+						recipe={recipe}
+					>
+						<div className="recipe__container" key={recipe.id}>
+							<img src={recipe.image} alt={recipe.image} />
+							<div className="recipe__title">{recipe.title}</div>
+						</div>
+					</Link>
 				))}
-			</React.Fragment>
+			</div>
 		);
 	}
 
