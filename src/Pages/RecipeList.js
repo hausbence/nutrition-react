@@ -38,14 +38,7 @@ const RecipeList = (props) => {
 		content = (
 			<div className="recipes__container">
 				{recipes.map((recipe, i) => (
-					<Link
-						to={{
-							pathname: "/recipe/" + recipe.id,
-							recipe: recipe,
-						}}
-						key={recipe.id}
-						recipe={recipe}
-					>
+					<Link to={"/recipe/" + recipe.id} key={recipe.id} recipe={recipe}>
 						<div className="recipe__container" key={recipe.id}>
 							<img src={recipe.image} alt={recipe.image} />
 							<div className="recipe__title">{recipe.title}</div>

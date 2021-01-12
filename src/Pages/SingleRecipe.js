@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useHttp } from "../hooks/http";
+import { Markup } from "interweave";
 
 const SingleRecipe = (props) => {
-    let content;
-    const baseUrl = "http://localhost:8080/recipe/"
-	const [url] = useState(baseUrl + props.recipe.id);
+	let content;
+	const baseUrl = "http://localhost:8080/recipe/";
+	const [url] = useState(baseUrl + props.match.params.id);
 	const [recipe, setRecipe] = useState([]);
 	const [isLoading, fetchedData] = useHttp(url, [url]);
 
 	useEffect(() => {
-		
+		if (fetchedData) {
+			setRecipe(fetchedData.data);
+		}
 	}, [fetchedData]);
 
-    console.log("test");
-    console.log(props);
+	console.log(recipe);
 
 	if (isLoading) {
 		content = (
@@ -32,7 +34,9 @@ const SingleRecipe = (props) => {
 	if (recipe) {
 		content = (
 			<div className="recipe">
-
+				<h2>{recipe.title}</h2>
+				<img src={recipe.image} alt={recipe.image} />
+				<Markup content={recipe.summary} />
 			</div>
 		);
 	}

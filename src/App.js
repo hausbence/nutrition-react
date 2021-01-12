@@ -28,7 +28,7 @@ const App = () => {
 							<Navbar />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
-							<Route exact path="recipe/:id" component={SingleRecipe} />
+							<Route exact path="/recipe/:id" component={SingleRecipe} />
 						</div>
 					</React.Fragment>
 				</Switch>
