@@ -6,11 +6,11 @@ import "./App.css";
 
 import MainPage from "./pages/MainPage";
 import Search from "./pages/Search";
-import Navbar from "./pages/Navbar";
 import { useDarkMode } from "./components/useDarkMode";
 import { GlobalStyles } from "./components/GlobalStyles";
+import Header from "./components/Header";
 import { lightTheme, darkTheme } from "./components/Themes";
-import Toggle from "./components/Toggler";
+import Toggler from "./components/Toggler";
 import SingleRecipe from "./pages/SingleRecipe";
 
 const App = () => {
@@ -24,8 +24,8 @@ const App = () => {
 				<Switch>
 					<React.Fragment>
 						<div className="App">
-							<Toggle theme={theme} toggleTheme={themeToggler} />
-							<Navbar />
+							<Header />
+							<Toggler theme={theme} toggleTheme={themeToggler} />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
 							<Route exact path="/recipe/:id" component={SingleRecipe} />
