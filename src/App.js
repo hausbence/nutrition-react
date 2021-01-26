@@ -29,12 +29,12 @@ const App = () => {
 				<Switch>
 					<React.Fragment>
 						<div className="App">
-							<Header />
 							<div ref={node}>
+								<Header />
 								<Burger open={open} setOpen={setOpen} />
 								<Menu open={open} setOpen={setOpen} />
+								<Toggler theme={theme} toggleTheme={themeToggler} />
 							</div>
-							<Toggler theme={theme} toggleTheme={themeToggler} />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
 							<Route exact path="/recipe/:id" component={SingleRecipe} />
