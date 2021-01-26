@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { StyledHeader } from "./Header.styled";
 import { Burger, Menu } from "../../components";
 
-const Header = ({ theme }) => {
+const Header = () => {
 	let history = useHistory();
 	const [open, setOpen] = useState(false);
 
@@ -17,9 +17,9 @@ const Header = ({ theme }) => {
 
 	return (
 		<StyledHeader>
+			<h1>Nutri App</h1>
 			<Burger open={open} setOpen={setOpen} />
 			<Menu open={open} setOpen={setOpen} />
-			<h1>Nutri App</h1>
 			<input
 				type="text"
 				placeholder="Search"

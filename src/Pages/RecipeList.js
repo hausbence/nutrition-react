@@ -43,9 +43,11 @@ const RecipeList = (props) => {
 						<div className="recipe__container" key={recipe.id}>
 							<img src={recipe.image} alt={recipe.image} />
 							<h2>{recipe.title}</h2>
-							<div className="recipe__summary">
-								<Markup content={recipe.summary} />
-							</div>
+							<Markup
+								content={recipe.summary}
+								blockList={"a"}
+								className="recipe__summary"
+							/>
 						</div>
 					</Link>
 				))}
