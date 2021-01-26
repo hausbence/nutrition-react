@@ -1,25 +1,31 @@
 import React from "react";
 import { bool } from "prop-types";
 import { StyledMenu } from "./Menu.styled";
+import { Link } from "react-router-dom";
+import Toggler from "../Toggler";
+import { useDarkMode } from "../useDarkMode";
 
 const Menu = ({ open, ...props }) => {
+	const [theme, themeToggler] = useDarkMode();
+
 	const isHidden = open ? true : false;
 	const tabIndex = isHidden ? 0 : -1;
 
 	return (
 		<StyledMenu open={open} aria-hidden={!isHidden} {...props}>
-			<a href="/" tabIndex={tabIndex}>
+			<Link to={"/"} tabIndex={tabIndex}>
 				<span aria-hidden="true">💁🏻‍♂️</span>
 				About us
-			</a>
-			<a href="/" tabIndex={tabIndex}>
+			</Link>
+			<Link to={"/"} tabIndex={tabIndex}>
 				<span aria-hidden="true">💸</span>
 				Pricing
-			</a>
-			<a href="/" tabIndex={tabIndex}>
+			</Link>
+			<Link to={"/"} tabIndex={tabIndex}>
 				<span aria-hidden="true">📩</span>
 				Contact
-			</a>
+			</Link>
+			<Toggler theme={theme} toggleTheme={themeToggler} />
 		</StyledMenu>
 	);
 };

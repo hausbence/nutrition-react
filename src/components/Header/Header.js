@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { StyledHeader } from "./Header.styled";
+import { Burger, Menu } from "../../components";
 
-import "./Header.css";
-
-const Header = () => {
+const Header = ({ theme }) => {
 	let history = useHistory();
+	const [open, setOpen] = useState(false);
 
 	const handleKeyPress = (event) => {
 		if (event.key === "Enter") {
@@ -15,7 +16,9 @@ const Header = () => {
 	};
 
 	return (
-		<div className="header__container">
+		<StyledHeader>
+			<Burger open={open} setOpen={setOpen} />
+			<Menu open={open} setOpen={setOpen} />
 			<h1>Nutri App</h1>
 			<input
 				type="text"
@@ -23,7 +26,7 @@ const Header = () => {
 				id="input"
 				onKeyPress={handleKeyPress}
 			/>
-		</div>
+		</StyledHeader>
 	);
 };
 
