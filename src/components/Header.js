@@ -1,8 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import Sidebar from "./Sidebar";
-
 import "./Header.css";
 
 const Header = () => {
@@ -19,7 +17,6 @@ const Header = () => {
 	return (
 		<div className="header__container">
 			<h1>Nutri App</h1>
-			<Sidebar />
 			<input
 				type="text"
 				placeholder="Search"

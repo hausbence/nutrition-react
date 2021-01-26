@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -13,9 +13,14 @@ import { lightTheme, darkTheme } from "./components/Themes";
 import Toggler from "./components/Toggler";
 import SingleRecipe from "./pages/SingleRecipe";
 
+import { Burger, Menu } from "./components";
+
 const App = () => {
 	const [theme, themeToggler] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+	const [open, setOpen] = useState(false);
+	const node = useRef();
 
 	return (
 		<ThemeProvider theme={themeMode}>
@@ -25,6 +30,10 @@ const App = () => {
 					<React.Fragment>
 						<div className="App">
 							<Header />
+							<div ref={node}>
+								<Burger open={open} setOpen={setOpen} />
+								<Menu open={open} setOpen={setOpen} />
+							</div>
 							<Toggler theme={theme} toggleTheme={themeToggler} />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
