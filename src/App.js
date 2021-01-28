@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import "./App.css";
 
 import MainPage from "./pages/MainPage";
+import SingleRecipe from "./pages/SingleRecipe";
 import Search from "./pages/Search";
-import Navbar from "./pages/Navbar";
-import { useDarkMode } from "./components/useDarkMode";
+
+import { Header } from "./components";
 import { GlobalStyles } from "./components/GlobalStyles";
 import { lightTheme, darkTheme } from "./components/Themes";
-import Toggle from "./components/Toggler";
-import SingleRecipe from "./pages/SingleRecipe";
+
+import { ThemeStyleContext } from "./ThemeStyleContext";
 
 const App = () => {
-	const [theme, themeToggler] = useDarkMode();
+	const themeContext = useContext(ThemeStyleContext);
+	const [theme, setTheme] = useState("");
+
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+	React.useEffect(() => {
+		setTheme(localStorage.getItem("theme"));
+	}, [themeContext]);
 
 	return (
 		<ThemeProvider theme={themeMode}>
@@ -24,8 +31,7 @@ const App = () => {
 				<Switch>
 					<React.Fragment>
 						<div className="App">
-							<Toggle theme={theme} toggleTheme={themeToggler} />
-							<Navbar />
+							<Header />
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
 							<Route exact path="/recipe/:id" component={SingleRecipe} />
