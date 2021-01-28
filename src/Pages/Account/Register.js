@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
-import AuthService from "../services/auth.service";
+// import Form from "react-validation/build/form";
+// import Input from "react-validation/build/input";
+// import CheckButton from "react-validation/build/button";
+// import { isEmail } from "validator";
+
+// import AuthService from "../services/auth.service";
 
 const required = (value) => {
 	if (!value) {
@@ -16,13 +17,13 @@ const required = (value) => {
 };
 
 const validEmail = (value) => {
-	if (!isEmail(value)) {
-		return (
-			<div className="alert alert-danger" role="alert">
-				This is not a valid email.
-			</div>
-		);
-	}
+	// if (!isEmail(value)) {
+	// 	return (
+	// 		<div className="alert alert-danger" role="alert">
+	// 			This is not a valid email.
+	// 		</div>
+	// 	);
+	// }
 };
 
 const vusername = (value) => {
@@ -79,30 +80,29 @@ const Register = (props) => {
 		form.current.validateAll();
 
 		if (checkBtn.current.context._errors.length === 0) {
-			AuthService.register(username, email, password).then(
-				(response) => {
-					setMessage(response.data.message);
-					setSuccessful(true);
-				},
-				(error) => {
-					const resMessage =
-						(error.response &&
-							error.response.data &&
-							error.response.data.message) ||
-						error.message ||
-						error.toString();
-
-					setMessage(resMessage);
-					setSuccessful(false);
-				}
-			);
+			// AuthService.register(username, email, password).then(
+			// 	(response) => {
+			// 		setMessage(response.data.message);
+			// 		setSuccessful(true);
+			// 	},
+			// 	(error) => {
+			// 		const resMessage =
+			// 			(error.response &&
+			// 				error.response.data &&
+			// 				error.response.data.message) ||
+			// 			error.message ||
+			// 			error.toString();
+			// 		setMessage(resMessage);
+			// 		setSuccessful(false);
+			// 	}
+			// );
 		}
 	};
 
 	return (
 		<div className="form">
 			<h2 className="loginHeader">Registration</h2>
-			<Form onSubmit={handleRegister} ref={form}>
+			{/* <Form onSubmit={handleRegister} ref={form}>
 				{!successful && (
 					<div className="input-fields">
 						<div className="field">
@@ -161,7 +161,7 @@ const Register = (props) => {
 					</div>
 				)}
 				<CheckButton style={{ display: "none" }} ref={checkBtn} />
-			</Form>
+			</Form> */}
 		</div>
 	);
 };
