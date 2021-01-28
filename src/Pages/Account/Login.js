@@ -18,12 +18,12 @@ const required = (value) => {
 const Login = (props) => {
 	const API_URL = "http://localhost:8080/api/auth/";
 
-	const [cookies, setCookie, removeCookie] = useCookies([
-		"id",
-		"email",
-		"username",
-		"user",
-	]);
+	// const [cookies, setCookie, removeCookie] = useCookies([
+	// 	"id",
+	// 	"email",
+	// 	"username",
+	// 	"user",
+	// ]);
 	const form = useRef();
 	const checkBtn = useRef();
 
@@ -43,22 +43,21 @@ const Login = (props) => {
 	};
 
 	const submitLogin = (username, password) => {
-		return axios
-			.post(API_URL + "signin", {
-				username,
-				password,
-			})
-			.then((response) => {
-				if (response.data.accessToken) {
-					setCookie("email", response.data.email, { path: "/" });
-					setCookie("username", response.data.username, { path: "/" });
-					setCookie("id", response.data.id, { path: "/" });
-					setCookie("user", response.data, { path: "/" });
-					// localStorage.setItem("user", JSON.stringify(response.data)); //localstorage
-				}
-
-				return response.data;
-			});
+		// return axios
+		// 	.post(API_URL + "signin", {
+		// 		username,
+		// 		password,
+		// 	})
+		// 	.then((response) => {
+		// 		if (response.data.accessToken) {
+		// 			setCookie("email", response.data.email, { path: "/" });
+		// 			setCookie("username", response.data.username, { path: "/" });
+		// 			setCookie("id", response.data.id, { path: "/" });
+		// 			setCookie("user", response.data, { path: "/" });
+		// 			// localStorage.setItem("user", JSON.stringify(response.data)); //localstorage
+		// 		}
+		// 		return response.data;
+		// 	});
 	};
 
 	const handleLogin = (e) => {
@@ -95,7 +94,7 @@ const Login = (props) => {
 	return (
 		<div className="form">
 			<h2 className="loginHeader">Login</h2>
-			<Form onSubmit={handleLogin} ref={form}>
+			{/* <Form onSubmit={handleLogin} ref={form}>
 				<label htmlFor="username">Username</label>
 				<Input
 					type="text"
@@ -134,8 +133,8 @@ const Login = (props) => {
 						</div>
 					</div>
 				)}
-				<CheckButton style={{ display: "none" }} ref={checkBtn} />
-			</Form>
+				<CheckButton style={{ display: "none" }} ref={checkBtn} /> }
+			{ </Form> */}
 		</div>
 	);
 };
