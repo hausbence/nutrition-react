@@ -8,6 +8,7 @@ import MainPage from "./pages/MainPage";
 import SingleRecipe from "./pages/SingleRecipe";
 import Search from "./pages/Search";
 import Register from "./pages/account/Register";
+import Login from "./pages/account/Login";
 
 import { Header } from "./components";
 import { GlobalStyles } from "./components/GlobalStyles";
@@ -37,6 +38,7 @@ const App = () => {
 							<Route exact path="/recipes/:searchTerm" component={Search} />
 							<Route exact path="/recipe/:id" component={SingleRecipe} />
 							<Route exact path="/registration" component={Register} />
+							<Route exact path="/login" component={Login} />
 						</div>
 					</React.Fragment>
 				</Switch>
