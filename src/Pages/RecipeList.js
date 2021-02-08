@@ -13,6 +13,7 @@ const RecipeList = (props) => {
 
 	useEffect(() => {
 		if (fetchedData) {
+			console.log(fetchedData);
 			if (fetchedData.data.results === undefined) {
 				setRecipes(fetchedData.data.recipes);
 			} else {
