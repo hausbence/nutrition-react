@@ -10,6 +10,7 @@ export const StyledMenu = styled.nav`
 	text-align: left;
 	padding: 2rem;
 	position: absolute;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	top: 0;
 	left: 0;
 	transition: transform 0.3s ease-in-out;

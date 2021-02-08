@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useHttp } from "../hooks/http";
+import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 
-import "./RecipeList.css";
+import { StyledRecipeList } from "./RecipeList.styled";
 
 const RecipeList = (props) => {
 	let content;
@@ -37,7 +37,7 @@ const RecipeList = (props) => {
 
 	if (recipes) {
 		content = (
-			<div className="recipes__container">
+			<StyledRecipeList>
 				{recipes.map((recipe, i) => (
 					<Link to={"/recipe/" + recipe.id} key={recipe.id} recipe={recipe}>
 						<div className="recipe__container" key={recipe.id}>
@@ -51,7 +51,7 @@ const RecipeList = (props) => {
 						</div>
 					</Link>
 				))}
-			</div>
+			</StyledRecipeList>
 		);
 	}
 
