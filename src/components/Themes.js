@@ -1,11 +1,11 @@
 export const lightTheme = {
 	body: "#8bd145",
 	text: "#ffffff",
-	toggleBorder: "#e16120",
-	background: "#f9f9f9",
-	primaryDark: "#3a9691",
-	primaryLight: "#ffffff",
-	primaryHover: "#707070",
+	toggleBorder: "#266150",
+	background: "#DDAF94",
+	primaryDark: "#4F4846",
+	primaryLight: "#FDF8F5",
+	primaryHover: "#E3DFDC",
 	mobile: "576px",
 };
 
