@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 import authHeader from "./auth-header";
 
@@ -11,7 +12,7 @@ const register = (username, email, password) => {
 	});
 };
 
-function login(username, password) {
+const login = (username, password) => {
 	return axios
 		.post(
 			API_URL + "signin",
@@ -27,7 +28,7 @@ function login(username, password) {
 
 			return response.data;
 		});
-}
+};
 
 export default {
 	register,
