@@ -21,11 +21,20 @@ const Recipe = (props) => {
 					onMouseLeave={() => setHovered(false)}
 					hovered={hovered}
 				>
-					<img
-						className="recipe_image"
-						src={recipe[0].image}
-						alt={recipe[0].title}
-					/>
+					{recipe[0].image !== undefined ? (
+						<img
+							className="recipe_image"
+							src={recipe[0].image}
+							alt={recipe[0].title}
+						/>
+					) : (
+						<img
+							className="recipe_image"
+							src="https://p.kindpng.com/picc/s/79-798754_hoteles-y-centros-vacacionales-dish-placeholder-hd-png.png"
+							alt={recipe[0].title}
+						/>
+					)}
+
 					<div className="image_overlay">
 						<Markup content={recipe[0].summary} blockList={"a"} />
 					</div>

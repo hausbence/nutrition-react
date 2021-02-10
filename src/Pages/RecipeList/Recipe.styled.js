@@ -5,12 +5,13 @@ let recipeWidth = 330 * 0.8;
 export const StyledRecipe = styled.div`
 	margin: 10px;
 	width: ${recipeWidth}px;
-	height: ${recipeWidth * 1.62}px;
+	height: ${recipeWidth * 1.45}px;
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
 	transition: 0.5s ease;
-	color: ${({ theme }) => theme.primaryDark};
+	color: ${({ theme, hovered }) =>
+		hovered ? theme.toggleBorder : theme.primaryDark};
 	.recipe_image {
 		display: block;
 		width: ${recipeWidth}px;
@@ -18,11 +19,11 @@ export const StyledRecipe = styled.div`
 		object-fit: cover;
 	}
 	background: ${({ theme, hovered }) =>
-		hovered ? theme.primaryHover : theme.primaryLight};
+		hovered ? theme.primaryLight : theme.primaryHover};
 	.image_overlay {
 		position: absolute;
 		top: 0;
-		color: ${({ theme }) => theme.primaryLight};
+		color: ${({ theme }) => theme.text};
 		padding: ${recipeWidth / 2}px 5px 5px 5px;
 		height: ${recipeWidth}px;
 		width: 100%;
@@ -37,7 +38,7 @@ export const StyledRecipe = styled.div`
 		transition: 0.5s ease;
 	}
 	h2 {
-		font-size: 21px;
+		font-size: 18px;
 		margin: 8px;
 	}
 	.title {
@@ -45,7 +46,7 @@ export const StyledRecipe = styled.div`
 		justify-content: center;
 		align-items: center;
 		width: ${recipeWidth}px;
-		height: 110px;
+		height: 80px;
 		overflow: hidden;
 		word-break: break-word;
 	}

@@ -17,12 +17,12 @@ const Header = () => {
 
 	return (
 		<StyledHeader>
-			<h1>Nutri App</h1>
+			<h1>nutri-core</h1>
 			<Burger open={open} setOpen={setOpen} />
 			<Menu open={open} setOpen={setOpen} />
 			<input
 				type="text"
-				placeholder="Search"
+				placeholder="Search recipes..."
 				id="input"
 				onKeyPress={handleKeyPress}
 			/>
