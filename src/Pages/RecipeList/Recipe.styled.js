@@ -9,7 +9,7 @@ export const StyledRecipe = styled.div`
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
-	transition: 0.5s ease;
+	transition: 0.2s ease;
 	color: ${({ theme, hovered }) =>
 		hovered ? theme.toggleBorder : theme.primaryDark};
 	.recipe_image {
@@ -19,7 +19,7 @@ export const StyledRecipe = styled.div`
 		object-fit: cover;
 	}
 	background: ${({ theme, hovered }) =>
-		hovered ? theme.primaryLight : theme.primaryHover};
+		hovered ? theme.primaryHover : theme.primaryLight};
 	.image_overlay {
 		position: absolute;
 		top: 0;
@@ -35,7 +35,7 @@ export const StyledRecipe = styled.div`
 			rgba(0, 0, 0, 0),
 			rgba(0, 0, 0, 0.9)
 		);
-		transition: 0.5s ease;
+		transition: 0.2s ease;
 	}
 	h2 {
 		font-size: 18px;
