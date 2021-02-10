@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useHttp } from "../hooks/http";
+import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
+import RecipeSummary from "./RecipeSummary";
 
-const SingleRecipe = (props) => {
+const RecipePage = (props) => {
 	let content;
 	const baseUrl = "http://localhost:8080/recipe/";
 	const [url] = useState(baseUrl + props.match.params.id);
@@ -14,8 +15,6 @@ const SingleRecipe = (props) => {
 			setRecipe(fetchedData.data);
 		}
 	}, [fetchedData]);
-
-	console.log(recipe);
 
 	if (isLoading) {
 		content = (
@@ -34,8 +33,7 @@ const SingleRecipe = (props) => {
 	if (recipe) {
 		content = (
 			<div className="recipe">
-				<h2>{recipe.title}</h2>
-				<img src={recipe.image} alt={recipe.image} />
+				<RecipeSummary recipe={recipe} />
 				<Markup content={recipe.summary} />
 			</div>
 		);
@@ -44,4 +42,4 @@ const SingleRecipe = (props) => {
 	return content;
 };
 
-export default SingleRecipe;
+export default RecipePage;
