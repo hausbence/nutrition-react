@@ -8,6 +8,8 @@ const RecipeSummary = (props) => {
 			<br></br>
 			<br></br>
 			<br></br>
+			<p>{recipe.title}</p>
+			<p>{recipe.summary}</p>
 			<p>{recipe.image}</p>
 		</React.Fragment>
 	);
