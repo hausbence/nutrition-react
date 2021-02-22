@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 import RecipeSummary from "./RecipeSummary";
+import { StyledRecipePage } from "./RecipePage.styled";
 
 const RecipePage = (props) => {
 	let content;
 	const baseUrl = "http://localhost:8080/recipe/";
+	const baseNutritionUrl = "http://localhost:8080/recipe/nutrition/";
 	const [url] = useState(baseUrl + props.match.params.id);
+	const [nutritionUrl] = useState(baseNutritionUrl + props.match.params.id);
 	const [recipe, setRecipe] = useState([]);
+	const [nutritionInfo, setNutritionInfo] = useState([]);
 	const [isLoading, fetchedData] = useHttp(url, [url]);
+	const [isLoadingNutrition, fetchedNutritionData] = useHttp(nutritionUrl, [
+		nutritionUrl,
+	]);
 
 	useEffect(() => {
 		if (fetchedData) {
@@ -16,7 +23,13 @@ const RecipePage = (props) => {
 		}
 	}, [fetchedData]);
 
-	if (isLoading) {
+	useEffect(() => {
+		if (fetchedNutritionData) {
+			setNutritionInfo(fetchedNutritionData.data);
+		}
+	}, [fetchedNutritionData]);
+
+	if (isLoading || isLoadingNutrition) {
 		content = (
 			<div className="loading">
 				<h2>Loading...</h2>
@@ -30,12 +43,14 @@ const RecipePage = (props) => {
 		);
 	}
 
+	console.log(nutritionInfo);
+
 	if (recipe) {
 		content = (
-			<div className="recipe">
-				<RecipeSummary recipe={recipe} />
+			<StyledRecipePage>
+				<RecipeSummary recipe={recipe} nutritionInfo={nutritionInfo} />
 				<Markup content={recipe.summary} />
-			</div>
+			</StyledRecipePage>
 		);
 	}
 
