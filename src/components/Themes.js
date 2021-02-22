@@ -1,21 +1,21 @@
 export const lightTheme = {
 	body: "#8bd145",
-	text: "#351b1b",
-	toggleBorder: "#351b1b",
-	background: "#8bd145",
-	primaryDark: "#EFFFFA",
-	primaryLight: "#0D0C1D",
-	primaryHover: "#343078",
+	text: "#ffffff",
+	toggleBorder: "#39603D",
+	background: "#ace1af",
+	primaryDark: "#3C403D",
+	primaryLight: "#ffffff",
+	primaryHover: "#f0f0f0",
 	mobile: "576px",
 };
 
 export const darkTheme = {
 	body: "#228B22",
 	text: "fff",
-	toggleBorder: "#6B8096",
-	background: "#999",
-	primaryDark: "#0D0C1D",
-	primaryLight: "#EFFFFA",
-	primaryHover: "#343078",
+	toggleBorder: "#ffffff",
+	background: "#121212",
+	primaryDark: "#e5e5e5",
+	primaryLight: "#1d1d1d",
+	primaryHover: "#2d2d2d",
 	mobile: "576px",
 };

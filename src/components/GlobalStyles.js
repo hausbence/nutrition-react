@@ -12,8 +12,8 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: ${({ theme }) => theme.primaryDark};
-    color: ${({ theme }) => theme.primaryLight};
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
     text-rendering: optimizeLegibility;
   }
   a {

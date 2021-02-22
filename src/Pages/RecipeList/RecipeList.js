@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useHttp } from "../hooks/http";
-import { Markup } from "interweave";
+import { useHttp } from "../../hooks/http";
 
-import "./RecipeList.css";
+import { StyledRecipeList } from "./RecipeList.styled";
+import Recipe from "./Recipe";
 
 const RecipeList = (props) => {
 	let content;
@@ -37,21 +36,11 @@ const RecipeList = (props) => {
 
 	if (recipes) {
 		content = (
-			<div className="recipes__container">
+			<StyledRecipeList>
 				{recipes.map((recipe, i) => (
-					<Link to={"/recipe/" + recipe.id} key={recipe.id} recipe={recipe}>
-						<div className="recipe__container" key={recipe.id}>
-							<img src={recipe.image} alt={recipe.image} />
-							<h2>{recipe.title}</h2>
-							<Markup
-								content={recipe.summary}
-								blockList={"a"}
-								className="recipe__summary"
-							/>
-						</div>
-					</Link>
+					<Recipe recipe={recipe} key={recipe.id}></Recipe>
 				))}
-			</div>
+			</StyledRecipeList>
 		);
 	}
 

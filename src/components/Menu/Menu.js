@@ -17,13 +17,13 @@ const Menu = ({ open, ...props }) => {
 				<span aria-hidden="true">💁🏻‍♂️</span>
 				Recipes
 			</Link>
-			<Link to={"/"} tabIndex={tabIndex}>
+			<Link to={"/registration"} tabIndex={tabIndex}>
 				<span aria-hidden="true">💸</span>
-				Profile
+				Register
 			</Link>
-			<Link to={"/"} tabIndex={tabIndex}>
+			<Link to={"/login"} tabIndex={tabIndex}>
 				<span aria-hidden="true">📩</span>
-				Contact
+				Login
 			</Link>
 			<Toggler theme={theme} toggleTheme={themeToggler} />
 		</StyledMenu>
