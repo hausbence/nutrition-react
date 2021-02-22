@@ -2,7 +2,7 @@ export const lightTheme = {
 	body: "#8bd145",
 	text: "#ffffff",
 	toggleBorder: "#39603D",
-	background: "#faeec3",
+	background: "#ace1af",
 	primaryDark: "#3C403D",
 	primaryLight: "#ffffff",
 	primaryHover: "#f0f0f0",

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 const RecipeSummary = (props) => {
-	const [recipe, setRecipe] = useState(props.recipe);
-	console.log(recipe);
+	const recipe = props.recipe;
 	let content = (
 		<React.Fragment>
 			<br></br>
