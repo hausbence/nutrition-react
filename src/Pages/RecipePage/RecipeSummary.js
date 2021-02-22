@@ -10,23 +10,28 @@ const RecipeSummary = (props) => {
 			<div className="recipe_summ_left">
 				<h2>{recipe.title}</h2>
 				<div className="recipe_sum_info">
-					<div>
-						<span>
+					<div className="recipe_sum_info_item">
+						<span className="recipe_sum_info_bold">
 							{recipe.extendedIngredients
 								? recipe.extendedIngredients.length
 								: ""}
 						</span>
 						<span>Ingredients</span>
 					</div>
-					<div>
-						<span>{recipe.readyInMinutes}</span>
+					<div className="recipe_sum_info_item">
+						<span className="recipe_sum_info_bold">
+							{recipe.readyInMinutes}
+						</span>
 						<span>Minutes</span>
 					</div>
-					<div>
-						<span>{nutritionInfo.calories}</span>
+					<div className="recipe_sum_info_item">
+						<span className="recipe_sum_info_bold">
+							{nutritionInfo.calories}
+						</span>
 						<span>Calories</span>
 					</div>
 				</div>
+				<div></div>
 			</div>
 			<div className="recipe_summ_right">
 				{recipe.image !== undefined ? (
