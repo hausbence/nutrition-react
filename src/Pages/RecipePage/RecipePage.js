@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 import RecipeSummary from "./RecipeSummary";
+import Ingredients from "./Ingredients";
 import { StyledRecipePage } from "./RecipePage.styled";
 import Tabs from "./tab";
 import TabPane from "./tab-pane";
@@ -45,6 +46,8 @@ const RecipePage = (props) => {
 		);
 	}
 
+	console.log(recipe.extendedIngredients);
+
 	if (recipe && nutritionInfo && nutritionInfo.length !== 0) {
 		content = (
 			<StyledRecipePage>
@@ -54,11 +57,7 @@ const RecipePage = (props) => {
 						<Markup content={recipe.summary} />
 					</TabPane>
 					<TabPane name="Ingredients" key="2">
-						{recipe.extendedIngredients !== undefined
-							? recipe.extendedIngredients.map((ingredient, i) => (
-									<div key={ingredient.name}>{ingredient.name}</div>
-							  ))
-							: ""}
+						<Ingredients ingredients={recipe.extendedIngredients} />
 					</TabPane>
 					<TabPane name="Instructions" key="3">
 						<div>{recipe.instructions}</div>

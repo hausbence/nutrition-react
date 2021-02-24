@@ -44,7 +44,7 @@ export const StyledRecipePage = styled.div`
 	.tab-content {
 		margin: 1px;
 		background: ${({ theme }) => theme.primaryLight};
-		height: 400px;
+		min-height: 400px;
 		position: relative;
 		border-radius: 0 0 5px 5px;
 	}
