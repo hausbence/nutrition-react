@@ -4,7 +4,6 @@ import { StyledRecipeSummary } from "./RecipeSummary.styled";
 const RecipeSummary = (props) => {
 	const recipe = props.recipe;
 	const nutritionInfo = props.nutritionInfo;
-	console.log(recipe);
 	let content = (
 		<StyledRecipeSummary>
 			<div className="recipe_summ_left">

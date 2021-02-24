@@ -45,9 +45,7 @@ const RecipePage = (props) => {
 		);
 	}
 
-	console.log(nutritionInfo);
-
-	if (recipe) {
+	if (recipe && nutritionInfo && nutritionInfo.length !== 0) {
 		content = (
 			<StyledRecipePage>
 				<RecipeSummary recipe={recipe} nutritionInfo={nutritionInfo} />
@@ -56,36 +54,33 @@ const RecipePage = (props) => {
 						<Markup content={recipe.summary} />
 					</TabPane>
 					<TabPane name="Ingredients" key="2">
-						<div>
-							{recipe.extendedIngredients !== undefined
-								? recipe.extendedIngredients.map(
-										(ingredient, i) => ingredient.name
-								  )
-								: ""}
-						</div>
+						{recipe.extendedIngredients !== undefined
+							? recipe.extendedIngredients.map((ingredient, i) => (
+									<div key={ingredient.name}>{ingredient.name}</div>
+							  ))
+							: ""}
 					</TabPane>
 					<TabPane name="Instructions" key="3">
 						<div>{recipe.instructions}</div>
 					</TabPane>
 					<TabPane name="Nutrition" key="4">
+						{nutritionInfo !== undefined
+							? nutritionInfo.bad.map((nutrition, i) => (
+									<div key={nutrition.title}>
+										{nutrition.title} + {nutrition.amount} +
+										{nutrition.percentOfDailyNeeds}
+									</div>
+							  ))
+							: ""}
+
 						<div>
 							{nutritionInfo !== undefined
-								? nutritionInfo.bad.map(
-										(nutrition, i) =>
-											nutrition.title +
-											nutrition.amount +
-											nutrition.percentOfDailyNeeds
-								  )
-								: ""}
-						</div>
-						<div>
-							{nutritionInfo !== undefined
-								? nutritionInfo.good.map(
-										(nutrition, i) =>
-											nutrition.title +
-											nutrition.amount +
-											nutrition.percentOfDailyNeeds
-								  )
+								? nutritionInfo.good.map((nutrition, i) => (
+										<div key={nutrition.title}>
+											{nutrition.title} + {nutrition.amount} +
+											{nutrition.percentOfDailyNeeds}
+										</div>
+								  ))
 								: ""}
 						</div>
 					</TabPane>

@@ -17,7 +17,7 @@ export const StyledRecipePage = styled.div`
 		height: 100%;
 		line-height: 50px;
 		white-space: nowrap;
-		border-radius: 3px 3px 0 0;
+		border-radius: 5px;
 		cursor: pointer;
 		background: ${({ theme }) => theme.primaryLight};
 		border-bottom: 3px solid ${({ theme }) => theme.background};
@@ -25,6 +25,7 @@ export const StyledRecipePage = styled.div`
 
 	.tab-header .active {
 		border-bottom: 3px solid ${({ theme }) => theme.primaryLight};
+		border-radius: 5px 5px 0 0;
 	}
 
 	.tab-header .tab-header-menu:hover {
@@ -45,8 +46,19 @@ export const StyledRecipePage = styled.div`
 		background: ${({ theme }) => theme.primaryLight};
 		height: 400px;
 		position: relative;
+		border-radius: 0 0 5px 5px;
 	}
-
 	.tab-child {
+		font-size: 20px;
+		font-family: europa-boldregular, sans-serif;
+		padding: 40px 20px;
+	}
+	.tab-child a {
+		color: ${({ theme }) => theme.primaryDark};
+		text-decoration: underline;
+	}
+	.tab-child a:hover {
+		color: ${({ theme }) => theme.toggleBorder};
+		text-decoration: underline;
 	}
 `;
