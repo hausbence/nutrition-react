@@ -22,14 +22,18 @@ const Ingredients = (props) => {
 					{ingredients !== undefined
 						? ingredients.map((ingredient, i) => (
 								<div className="ingredient-item" key={ingredient.name}>
-									{ingredient.name}
+									<div className="ingredient-item-labels">
+										{ingredient.name}
+									</div>
 									<img src={picUrl + ingredient.image} alt={ingredient.name} />
-									{!checked
-										? Math.round(ingredient.measures.metric.amount * 10) / 10
-										: ingredient.measures.us.amount}{" "}
-									{!checked
-										? ingredient.measures.metric.unitShort
-										: ingredient.measures.us.unitShort}
+									<div className="ingredient-item-labels">
+										{!checked
+											? Math.round(ingredient.measures.metric.amount * 10) / 10
+											: ingredient.measures.us.amount}{" "}
+										{!checked
+											? ingredient.measures.metric.unitShort
+											: ingredient.measures.us.unitShort}
+									</div>
 								</div>
 						  ))
 						: ""}

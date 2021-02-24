@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledToggleSwitch = styled.div`
 	.toggle-switch {
+		float: right;
 		position: relative;
 		width: 80px;
 		vertical-align: middle;
