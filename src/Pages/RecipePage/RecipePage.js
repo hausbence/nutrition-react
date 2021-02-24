@@ -3,6 +3,8 @@ import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 import RecipeSummary from "./RecipeSummary";
 import { StyledRecipePage } from "./RecipePage.styled";
+import Tabs from "./tab";
+import TabPane from "./tab-pane";
 
 const RecipePage = (props) => {
 	let content;
@@ -49,7 +51,56 @@ const RecipePage = (props) => {
 		content = (
 			<StyledRecipePage>
 				<RecipeSummary recipe={recipe} nutritionInfo={nutritionInfo} />
-				<Markup content={recipe.summary} />
+				<Tabs>
+					<TabPane name="Summary" key="1">
+						<Markup content={recipe.summary} />
+					</TabPane>
+					<TabPane name="Ingredients" key="2">
+						<div>
+							{recipe.extendedIngredients !== undefined
+								? recipe.extendedIngredients.map(
+										(ingredient, i) => ingredient.name
+								  )
+								: ""}
+						</div>
+					</TabPane>
+					<TabPane name="Instructions" key="3">
+						<div>{recipe.instructions}</div>
+					</TabPane>
+					<TabPane name="Nutrition" key="4">
+						<div>
+							{nutritionInfo !== undefined
+								? nutritionInfo.bad.map(
+										(nutrition, i) =>
+											nutrition.title +
+											nutrition.amount +
+											nutrition.percentOfDailyNeeds
+								  )
+								: ""}
+						</div>
+						<div>
+							{nutritionInfo !== undefined
+								? nutritionInfo.good.map(
+										(nutrition, i) =>
+											nutrition.title +
+											nutrition.amount +
+											nutrition.percentOfDailyNeeds
+								  )
+								: ""}
+						</div>
+					</TabPane>
+					<TabPane name="Tags" key="5">
+						<div className="recipe_sum_diets">
+							{recipe.diets !== undefined
+								? recipe.diets.map((diet, i) =>
+										recipe.diets.indexOf(diet) === recipe.diets.length - 1
+											? diet + ""
+											: diet + ", "
+								  )
+								: ""}
+						</div>
+					</TabPane>
+				</Tabs>
 			</StyledRecipePage>
 		);
 	}
