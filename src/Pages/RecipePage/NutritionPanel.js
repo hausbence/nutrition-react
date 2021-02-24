@@ -13,10 +13,8 @@ const NutritionPanel = (props) => {
 		}
 	};
 
-	console.log(nutritionInfo);
 	getItems(nutritionInfo.bad);
 	getItems(nutritionInfo.good);
-	console.log(nutritionArray);
 
 	if (nutritionInfo !== undefined) {
 		content = (
@@ -27,8 +25,15 @@ const NutritionPanel = (props) => {
 					<div className="macro-item">{nutritionInfo.fat} Total Fat</div>
 					<div className="macro-item">{nutritionInfo.carbs} Carbs</div>
 				</div>
-
-				<NutritionTable products={nutritionArray} />
+				<div className="nutrition-table">
+					<NutritionTable nutrition={nutritionArray} />
+				</div>
+				<p>
+					*The Reference Daily Intake (RDI) used in nutrition labeling on food
+					and dietary supplement products is the daily intake level of a
+					nutrient that is considered to be sufficient to meet the requirements
+					of 97–98% of healthy individuals
+				</p>
 			</StyledNutritionPanel>
 		);
 	} else {

@@ -35,7 +35,7 @@ const useSortableData = (items, config = null) => {
 };
 
 const NutritionTable = (props) => {
-	const { items, requestSort, sortConfig } = useSortableData(props.products);
+	const { items, requestSort, sortConfig } = useSortableData(props.nutrition);
 	const getClassNamesFor = (name) => {
 		if (!sortConfig) {
 			return;
@@ -68,10 +68,10 @@ const NutritionTable = (props) => {
 					<th>
 						<button
 							type="button"
-							onClick={() => requestSort("percentage")}
-							className={getClassNamesFor("percentage")}
+							onClick={() => requestSort("percentOfDailyNeeds")}
+							className={getClassNamesFor("percentOfDailyNeeds")}
 						>
-							Percentage of Daily Needs
+							RDI*
 						</button>
 					</th>
 				</tr>
