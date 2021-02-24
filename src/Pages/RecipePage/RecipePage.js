@@ -3,6 +3,7 @@ import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 import RecipeSummary from "./RecipeSummary";
 import Ingredients from "./Ingredients";
+import NutritionPanel from "./NutritionPanel";
 import Tags from "./Tags";
 import { StyledRecipePage } from "./RecipePage.styled";
 import Tabs from "./tab";
@@ -47,9 +48,6 @@ const RecipePage = (props) => {
 		);
 	}
 
-	console.log(recipe);
-	console.log(recipe.extendedIngredients);
-
 	if (recipe && nutritionInfo && nutritionInfo.length !== 0) {
 		content = (
 			<StyledRecipePage>
@@ -65,25 +63,7 @@ const RecipePage = (props) => {
 						<Markup content={recipe.instructions} />
 					</TabPane>
 					<TabPane name="Nutrition" key="4">
-						{nutritionInfo !== undefined
-							? nutritionInfo.bad.map((nutrition, i) => (
-									<div key={nutrition.title}>
-										{nutrition.title} + {nutrition.amount} +
-										{nutrition.percentOfDailyNeeds}
-									</div>
-							  ))
-							: ""}
-
-						<div>
-							{nutritionInfo !== undefined
-								? nutritionInfo.good.map((nutrition, i) => (
-										<div key={nutrition.title}>
-											{nutrition.title} + {nutrition.amount} +
-											{nutrition.percentOfDailyNeeds}
-										</div>
-								  ))
-								: ""}
-						</div>
+						<NutritionPanel nutritionInfo={nutritionInfo} />
 					</TabPane>
 					<TabPane name="Tags" key="5">
 						<Tags recipe={recipe} />

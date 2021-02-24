@@ -30,4 +30,5 @@ export const StyledTags = styled.div`
 			#3cd3ad
 		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
+	
 `;

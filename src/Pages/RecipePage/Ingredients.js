@@ -7,8 +7,6 @@ const Ingredients = (props) => {
 	const picUrl = "https://spoonacular.com/cdn/ingredients_100x100/";
 	const ingredients = props.ingredients;
 	const [checked, setChecked] = useState(true);
-	console.log(ingredients);
-	console.log(checked);
 	content = (
 		<StyledIngredients>
 			<div>
