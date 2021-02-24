@@ -31,7 +31,10 @@ const RecipeSummary = (props) => {
 						<span>Calories</span>
 					</div>
 				</div>
-				<div className="recipe_sum_servings">{recipe.servings} servings</div>
+				<div className="recipe_sum_servings">
+					<span className="recipe_sum_info_bold">{recipe.servings}</span>
+					<span> servings</span>
+				</div>
 			</div>
 			<div className="recipe_summ_right">
 				{recipe.image !== undefined ? (

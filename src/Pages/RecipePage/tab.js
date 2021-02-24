@@ -27,17 +27,19 @@ const Tabs = (props) => {
 
 	return (
 		<div className="tabs">
-			<ul className="tab-header">
+			<div className="tab-header">
 				{tabHeader.map((item) => (
-					<li
+					<div
 						onClick={() => changeTab(item)}
 						key={item}
-						className={item === active ? "active" : ""}
+						className={
+							item === active ? "active tab-header-menu" : "tab-header-menu"
+						}
 					>
 						{item}
-					</li>
+					</div>
 				))}
-			</ul>
+			</div>
 			<div className="tab-content">
 				{Object.keys(childContent).map((key) => {
 					if (key === active) {

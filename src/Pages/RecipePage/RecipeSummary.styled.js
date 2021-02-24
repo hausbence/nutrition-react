@@ -13,8 +13,8 @@ export const StyledRecipeSummary = styled.div`
 		font-size: 26px;
 	}
 	.recipe_summ_left {
-		min-width: 385px;
-		margin: 20px 30px;
+		min-width: 405px;
+		margin: 20px 30px 20px 10px;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;

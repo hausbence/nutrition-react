@@ -6,23 +6,28 @@ export const StyledRecipePage = styled.div`
 	color: ${({ theme }) => theme.primaryDark};
 
 	.tab-header {
-		list-style: none;
-		background: #fff;
-		border-radius: 36px;
-		line-height: 25px;
-		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		display: flex;
+		border-radius: 3px;
+		height: 50px;
 	}
-	.tab-header li {
-		display: inline;
-		padding: 7px 12px;
-		border-radius: 36px;
-		line-height: 35px;
-
+	.tab-header .tab-header-menu {
+		margin: 1px;
+		text-align: center;
+		flex: 1;
+		height: 100%;
+		line-height: 50px;
+		white-space: nowrap;
+		border-radius: 3px 3px 0 0;
 		cursor: pointer;
+		background: ${({ theme }) => theme.primaryLight};
+		border-bottom: 3px solid ${({ theme }) => theme.background};
 	}
 
-	.tab-header li.active,
-	.tab-header li:hover {
+	.tab-header .active {
+		border-bottom: 3px solid ${({ theme }) => theme.primaryLight};
+	}
+
+	.tab-header .tab-header-menu:hover {
 		background: #4cb8c4; /* fallback for old browsers */
 		background: -webkit-linear-gradient(
 			to right,
@@ -36,18 +41,12 @@ export const StyledRecipePage = styled.div`
 		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 	.tab-content {
+		margin: 1px;
+		background: ${({ theme }) => theme.primaryLight};
 		height: 400px;
-		background: #fff;
-		border: 1px solid #dedeed;
-		margin: 12px;
-		width: 100%;
 		position: relative;
 	}
 
 	.tab-child {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 `;
