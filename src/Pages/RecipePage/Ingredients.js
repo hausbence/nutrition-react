@@ -25,7 +25,18 @@ const Ingredients = (props) => {
 									<div className="ingredient-item-labels">
 										{ingredient.name}
 									</div>
-									<img src={picUrl + ingredient.image} alt={ingredient.name} />
+									{ingredient.image !== undefined ? (
+										<img
+											src={picUrl + ingredient.image}
+											alt={ingredient.name}
+										/>
+									) : (
+										<img
+											className="recipe_image"
+											src="https://p.kindpng.com/picc/s/79-798754_hoteles-y-centros-vacacionales-dish-placeholder-hd-png.png"
+											alt={ingredient.name}
+										/>
+									)}
 									<div className="ingredient-item-labels">
 										{!checked
 											? Math.round(ingredient.measures.metric.amount * 10) / 10

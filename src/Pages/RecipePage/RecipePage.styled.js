@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledRecipePage = styled.div`
 	max-width: 1000px;
-	margin: 80px auto;
+	margin: 85px auto;
 	color: ${({ theme }) => theme.primaryDark};
 
 	.tab-header {
@@ -51,7 +51,7 @@ export const StyledRecipePage = styled.div`
 	.tab-child {
 		font-size: 20px;
 		font-family: europa-boldregular, sans-serif;
-		padding: 40px 20px;
+		padding: 40px 30px;
 	}
 	.tab-child a {
 		color: ${({ theme }) => theme.primaryDark};

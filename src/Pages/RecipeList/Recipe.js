@@ -32,7 +32,6 @@ const Recipe = (props) => {
 							alt={recipe[0].title}
 						/>
 					)}
-
 					<div className="image_overlay">
 						<Markup content={recipe[0].summary} blockList={"a"} />
 					</div>
