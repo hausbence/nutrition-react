@@ -11,6 +11,7 @@ export const StyledRecipePage = styled.div`
 		height: 50px;
 	}
 	.tab-header .tab-header-menu {
+		font-size: 21px;
 		margin: 1px;
 		text-align: center;
 		flex: 1;

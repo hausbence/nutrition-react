@@ -26,7 +26,7 @@ export const StyledTags = styled.div`
 		); /* Chrome 10-25, Safari 5.1-6 */
 		background: linear-gradient(
 			to right,
-			#4cb8c4,
+			#4cb8c4, 
 			#3cd3ad
 		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
