@@ -10,7 +10,7 @@ export const StyledTags = styled.div`
         margin 5px 10px;
 		padding: 15px;
 		text-transform: lowercase;
-		background: ${({ theme }) => theme.background};
+		background: ${({ theme }) => theme.inBetween};
         border-radius: 5px;
 	}
     .tags-container a {

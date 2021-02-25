@@ -13,7 +13,7 @@ export const StyledIngredients = styled.div`
 		justify-content: space-between;
 		align-items: center;
 		width: 150px;
-		background: ${({ theme }) => theme.background};
+		background: ${({ theme }) => theme.inBetween};
 		border-radius: 5px;
 	}
 	.ingredient-item-labels {
