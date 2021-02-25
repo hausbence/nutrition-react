@@ -14,7 +14,6 @@ const Tags = (props) => {
 
 	getItems(recipe.cuisines);
 	getItems(recipe.dishTypes);
-	console.log(tags);
 	content = (
 		<StyledTags>
 			<div className="tags-container">

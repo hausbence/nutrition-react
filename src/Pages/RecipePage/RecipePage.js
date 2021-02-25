@@ -63,7 +63,7 @@ const RecipePage = (props) => {
 						<Markup content={recipe.instructions} />
 					</TabPane>
 					<TabPane name="Nutrition" key="4">
-						<NutritionPanel nutritionInfo={nutritionInfo} />
+						<NutritionPanel nutritionInfo={nutritionInfo} recipe={recipe} />
 					</TabPane>
 					<TabPane name="Tags" key="5">
 						<Tags recipe={recipe} />

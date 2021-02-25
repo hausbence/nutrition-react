@@ -6,6 +6,7 @@ const NutritionPanel = (props) => {
 	let content;
 	let nutritionArray = [];
 	const nutritionInfo = props.nutritionInfo;
+	const weightPerServing = props.recipe;
 
 	const getItems = (list) => {
 		if (list !== undefined && list.length !== 0) {
@@ -15,7 +16,8 @@ const NutritionPanel = (props) => {
 
 	getItems(nutritionInfo.bad);
 	getItems(nutritionInfo.good);
-
+	console.log(props.recipe);
+	console.log(nutritionInfo);
 	if (nutritionInfo !== undefined) {
 		content = (
 			<StyledNutritionPanel>
