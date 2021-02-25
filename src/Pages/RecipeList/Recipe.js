@@ -11,8 +11,6 @@ const Recipe = (props) => {
 	const recipe = useState(props.recipe);
 	const [hovered, setHovered] = useState(false);
 
-	console.log(recipe[0].image);
-	console.log(recipe[0]);
 	if (recipe) {
 		content = (
 			<Link to={"/recipe/" + recipe[0].id} key={recipe[0].id}>
@@ -34,7 +32,6 @@ const Recipe = (props) => {
 							alt={recipe[0].title}
 						/>
 					)}
-
 					<div className="image_overlay">
 						<Markup content={recipe[0].summary} blockList={"a"} />
 					</div>

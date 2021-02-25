@@ -2,13 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useHttp } from "../../hooks/http";
 import { Markup } from "interweave";
 import RecipeSummary from "./RecipeSummary";
+import Ingredients from "./Ingredients";
+import NutritionPanel from "./NutritionPanel";
+import Tags from "./Tags";
+import { StyledRecipePage } from "./RecipePage.styled";
+import Tabs from "./tab";
+import TabPane from "./tab-pane";
 
 const RecipePage = (props) => {
 	let content;
 	const baseUrl = "http://localhost:8080/recipe/";
+	const baseNutritionUrl = "http://localhost:8080/recipe/nutrition/";
 	const [url] = useState(baseUrl + props.match.params.id);
+	const [nutritionUrl] = useState(baseNutritionUrl + props.match.params.id);
 	const [recipe, setRecipe] = useState([]);
+	const [nutritionInfo, setNutritionInfo] = useState([]);
 	const [isLoading, fetchedData] = useHttp(url, [url]);
+	const [isLoadingNutrition, fetchedNutritionData] = useHttp(nutritionUrl, [
+		nutritionUrl,
+	]);
 
 	useEffect(() => {
 		if (fetchedData) {
@@ -16,7 +28,13 @@ const RecipePage = (props) => {
 		}
 	}, [fetchedData]);
 
-	if (isLoading) {
+	useEffect(() => {
+		if (fetchedNutritionData) {
+			setNutritionInfo(fetchedNutritionData.data);
+		}
+	}, [fetchedNutritionData]);
+
+	if (isLoading || isLoadingNutrition) {
 		content = (
 			<div className="loading">
 				<h2>Loading...</h2>
@@ -30,12 +48,28 @@ const RecipePage = (props) => {
 		);
 	}
 
-	if (recipe) {
+	if (recipe && nutritionInfo && nutritionInfo.length !== 0) {
 		content = (
-			<div className="recipe">
-				<RecipeSummary recipe={recipe} />
-				<Markup content={recipe.summary} />
-			</div>
+			<StyledRecipePage>
+				<RecipeSummary recipe={recipe} nutritionInfo={nutritionInfo} />
+				<Tabs>
+					<TabPane name="Summary" key="1">
+						<Markup content={recipe.summary} />
+					</TabPane>
+					<TabPane name="Ingredients" key="2">
+						<Ingredients ingredients={recipe.extendedIngredients} />
+					</TabPane>
+					<TabPane name="Instructions" key="3">
+						<Markup content={recipe.instructions} />
+					</TabPane>
+					<TabPane name="Nutrition" key="4">
+						<NutritionPanel nutritionInfo={nutritionInfo} recipe={recipe} />
+					</TabPane>
+					<TabPane name="Tags" key="5">
+						<Tags recipe={recipe} />
+					</TabPane>
+				</Tabs>
+			</StyledRecipePage>
 		);
 	}
 
