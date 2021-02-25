@@ -54,11 +54,11 @@ export const StyledRecipePage = styled.div`
 		font-family: europa-boldregular, sans-serif;
 		padding: 40px 30px;
 	}
-	.tab-child a {
+	.markup-content a {
 		color: ${({ theme }) => theme.primaryDark};
 		text-decoration: underline;
 	}
-	.tab-child a:hover {
+	.markup-content a:hover {
 		color: ${({ theme }) => theme.toggleBorder};
 		text-decoration: underline;
 	}

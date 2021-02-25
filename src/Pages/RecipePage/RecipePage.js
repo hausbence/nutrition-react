@@ -54,13 +54,17 @@ const RecipePage = (props) => {
 				<RecipeSummary recipe={recipe} nutritionInfo={nutritionInfo} />
 				<Tabs>
 					<TabPane name="Summary" key="1">
-						<Markup content={recipe.summary} />
+						<div className="markup-content">
+							<Markup content={recipe.summary} />
+						</div>
 					</TabPane>
 					<TabPane name="Ingredients" key="2">
 						<Ingredients ingredients={recipe.extendedIngredients} />
 					</TabPane>
 					<TabPane name="Instructions" key="3">
-						<Markup content={recipe.instructions} />
+						<div className="markup-content">
+							<Markup content={recipe.instructions} />
+						</div>
 					</TabPane>
 					<TabPane name="Nutrition" key="4">
 						<NutritionPanel nutritionInfo={nutritionInfo} recipe={recipe} />

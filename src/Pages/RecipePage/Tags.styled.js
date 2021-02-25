@@ -15,6 +15,7 @@ export const StyledTags = styled.div`
 	}
     .tags-container a {
         text-decoration: none;
+		color: ${({ theme }) => theme.primaryDark};
     }
     .tags-container a:hover {
         text-decoration: none;
@@ -30,10 +31,4 @@ export const StyledTags = styled.div`
 			#3cd3ad
 		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-	.tag-item a {
-		text-decoration-none
-	}
-	.tag-item a:hover {
-		text-decoration-none
-	}
 `;

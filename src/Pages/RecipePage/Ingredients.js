@@ -19,7 +19,10 @@ const Ingredients = (props) => {
 				<div className="ingredient-list">
 					{ingredients !== undefined
 						? ingredients.map((ingredient, i) => (
-								<div className="ingredient-item" key={ingredient.name}>
+								<div
+									className="ingredient-item"
+									key={ingredients.indexOf(ingredient)}
+								>
 									<div className="ingredient-item-labels">
 										{ingredient.name}
 									</div>

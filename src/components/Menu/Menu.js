@@ -4,15 +4,30 @@ import { StyledMenu } from "./Menu.styled";
 import { Link } from "react-router-dom";
 import Toggler from "../Toggler";
 import { useDarkMode } from "../useDarkMode";
+import { useHistory } from "react-router-dom";
 
 const Menu = ({ open, ...props }) => {
 	const [theme, themeToggler] = useDarkMode();
 
 	const isHidden = open ? true : false;
 	const tabIndex = isHidden ? 0 : -1;
+	let history = useHistory();
 
+	const handleKeyPress = (event) => {
+		if (event.key === "Enter") {
+			history.push({
+				pathname: `/recipes/${document.getElementById("input").value}`,
+			});
+		}
+	};
 	return (
 		<StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+			<input
+				type="text"
+				placeholder="Search recipes..."
+				id="input"
+				onKeyPress={handleKeyPress}
+			/>
 			<Link to={"/"} tabIndex={tabIndex}>
 				<span aria-hidden="true">💁🏻‍♂️</span>
 				Recipes
