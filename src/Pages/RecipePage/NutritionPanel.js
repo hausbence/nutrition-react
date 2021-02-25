@@ -1,6 +1,7 @@
 import React from "react";
 import { StyledNutritionPanel } from "./NutritionPanel.styled";
 import NutritionTable from "./NutritionTable";
+import { PieChart } from "react-minimal-pie-chart";
 
 const NutritionPanel = (props) => {
 	let content;
@@ -27,8 +28,36 @@ const NutritionPanel = (props) => {
 					<div className="macro-item">{nutritionInfo.fat} Total Fat</div>
 					<div className="macro-item">{nutritionInfo.carbs} Carbs</div>
 				</div>
-				<div className="nutrition-table">
-					<NutritionTable nutrition={nutritionArray} />
+				<div className="nutrition-panel-body">
+					<div className="nutrition-table">
+						<NutritionTable nutrition={nutritionArray} />
+					</div>
+					<PieChart
+						className="piechart"
+						style={{ height: "300px", width: "300px" }}
+						label={({ dataEntry }) => dataEntry.title}
+						labelPosition={75}
+						labelStyle={{
+							fontSize: "8px",
+						}}
+						data={[
+							{
+								title: "Protein",
+								value: parseInt(nutritionInfo.protein),
+								color: "#E38627",
+							},
+							{
+								title: "Fat",
+								value: parseInt(nutritionInfo.fat),
+								color: "#6A2135",
+							},
+							{
+								title: "Carbs",
+								value: parseInt(nutritionInfo.carbs),
+								color: "#C13C37",
+							},
+						]}
+					/>
 				</div>
 				<p>
 					*The Reference Daily Intake (RDI) used in nutrition labeling on food

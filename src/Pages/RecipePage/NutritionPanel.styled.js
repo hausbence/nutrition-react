@@ -13,8 +13,16 @@ export const StyledNutritionPanel = styled.div`
 		background: ${({ theme }) => theme.inBetween};
 		border-radius: 5px;
 	}
+	.nutrition-panel-body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+	}
 	.nutrition-table caption {
 		display: none;
+	}
+	.nutrition-table {
+		max-width: 500px;
 	}
 	.nutrition-table table {
 		font-size: 28px;
@@ -23,11 +31,15 @@ export const StyledNutritionPanel = styled.div`
 	}
 	.nutrition-table button {
 		width: 100%;
-        font-size: 24px;
+		font-size: 24px;
 	}
 	.nutrition-table td {
 		padding: 3px 10px;
 	}
 	.nutrition-table tr:nth-child(even) {
-        background: ${({ theme }) => theme.inBetween};
+		background: ${({ theme }) => theme.inBetween};
+	}
+	.piechart {
+		float: right;
+	}
 `;
