@@ -63,80 +63,56 @@ const Login = (props) => {
 	};
 
 	const handleLogin = (e) => {
-		e.preventDefault();
-
 		setMessage("");
 		setLoading(true);
 
-		form.current.validateAll();
+		submitLogin(username, password).then(
+			() => {
+				props.history.push("/profile");
+				window.location.reload();
+			},
+			(error) => {
+				const resMessage =
+					(error.response &&
+						error.response.data &&
+						error.response.data.message) ||
+					error.message ||
+					error.toString();
 
-		if (checkBtn.current.context._errors.length === 0) {
-			submitLogin(username, password).then(
-				() => {
-					props.history.push("/profile");
-					window.location.reload();
-				},
-				(error) => {
-					const resMessage =
-						(error.response &&
-							error.response.data &&
-							error.response.data.message) ||
-						error.message ||
-						error.toString();
-
-					setLoading(false);
-					setMessage(resMessage);
-				}
-			);
-		} else {
-			setLoading(false);
-		}
+				setLoading(false);
+				setMessage(resMessage);
+			}
+		);
 	};
 
 	return (
 		<div className="form">
 			<h2 className="loginHeader">Login</h2>
-			<Form onSubmit={handleLogin} ref={form}>
+			<form onSubmit={handleLogin}>
 				<label htmlFor="username">Username</label>
-				<Input
+				<input
 					type="text"
 					className="input-style"
 					name="username"
 					value={username}
 					placeholder="Username"
 					onChange={onChangeUsername}
-					validations={[required]}
+					required
 				/>
 
 				<label htmlFor="password">Password</label>
-				<Input
+				<input
 					type="password"
 					className="input-style"
 					name="password"
 					value={password}
 					placeholder="Password"
 					onChange={onChangePassword}
-					validations={[required]}
+					required
 				/>
-
-				<div className="form-group">
-					<button className="button" disabled={loading}>
-						{loading && (
-							<span className="spinner-border spinner-border-sm"> </span>
-						)}
-						<span>Login</span>
-					</button>
-				</div>
-
-				{message && (
-					<div className="form-group">
-						<div className="alert alert-danger" role="alert">
-							{message}
-						</div>
-					</div>
-				)}
-				<CheckButton style={{ display: "none" }} ref={checkBtn} />
-			</Form>
+				<input type="submit" />
+			</form>
+			{message}
 		</div>
 	);
 };
