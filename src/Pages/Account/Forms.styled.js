@@ -34,6 +34,7 @@ export const StyledForm = styled.div`
 		width: 300px;
 		border: none;
 		border-radius: 5px;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
 	}
 
 	input[type="submit"] {
