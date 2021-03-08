@@ -14,13 +14,14 @@ export const StyledMenu = styled.nav`
 	top: 0;
 	left: 0;
 	transition: transform 0.3s ease-in-out;
+	width: 300px;
 	@media (max-width: ${({ theme }) => theme.mobile}) {
 		width: 100%;
 	}
 	a {
 		font-size: 2rem;
 		text-transform: uppercase;
-		padding: 2rem 0;
+		padding: 20px 0;
 		font-weight: bold;
 		letter-spacing: 0.5rem;
 		color: ${({ theme }) => theme.primaryDark};

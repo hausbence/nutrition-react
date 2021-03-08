@@ -5,7 +5,7 @@ let recipeWidth = 330 * 0.8;
 export const StyledRecipe = styled.div`
 	margin: 10px;
 	width: ${recipeWidth}px;
-	height: ${recipeWidth * 1.45}px;
+	height: ${recipeWidth * 1.35}px;
 	position: relative;
 	border-radius: 5px;
 	overflow: hidden;
