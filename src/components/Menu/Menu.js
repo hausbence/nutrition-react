@@ -6,6 +6,7 @@ import Toggler from "../Toggler";
 import { useDarkMode } from "../useDarkMode";
 import { useHistory } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import logo from "../../resources/Nutri-core-03.png";
 
 const Menu = ({ open, ...props }) => {
 	const [theme, themeToggler] = useDarkMode();
@@ -13,12 +14,7 @@ const Menu = ({ open, ...props }) => {
 	const isHidden = open ? true : false;
 	const tabIndex = isHidden ? 0 : -1;
 	let history = useHistory();
-	const [cookies, removeCookie] = useCookies([
-		"email",
-		"password",
-		"id",
-		"username",
-	]);
+	const [cookies, removeCookie] = useCookies(["email", "username"]);
 
 	const handleLogout = () => {
 		removeCookie("email", "");
@@ -35,39 +31,42 @@ const Menu = ({ open, ...props }) => {
 	};
 	return (
 		<StyledMenu open={open} aria-hidden={!isHidden} {...props}>
+			<img src={logo} alt="logo" width="100" />
 			<input
 				type="text"
 				placeholder="Search recipes..."
 				id="input"
 				onKeyPress={handleKeyPress}
 			/>
-			<Link to={"/"} tabIndex={tabIndex}>
-				Recipes
-			</Link>
-			{!cookies.email ? (
-				<Link to="/registration" tabIndex={tabIndex}>
-					Register
+			<div className="menupoints">
+				<Link to={"/"} tabIndex={tabIndex}>
+					Recipes
 				</Link>
-			) : null}
-			{!cookies.email ? (
-				<Link to="/login" tabIndex={tabIndex}>
-					Login
-				</Link>
-			) : null}
-			{cookies.email ? (
-				<Link to="/profile" tabIndex={tabIndex}>
-					Profile
-				</Link>
-			) : null}
-			{cookies.email ? (
-				<Link to="/" onClick={handleLogout}>
-					Logout
-				</Link>
-			) : null}
+				{!cookies.email ? (
+					<Link to="/registration" tabIndex={tabIndex}>
+						Register
+					</Link>
+				) : null}
+				{!cookies.email ? (
+					<Link to="/login" tabIndex={tabIndex}>
+						Login
+					</Link>
+				) : null}
+				{cookies.email ? (
+					<Link to="/profile" tabIndex={tabIndex}>
+						Profile
+					</Link>
+				) : null}
+				{cookies.email ? (
+					<Link to="/" onClick={handleLogout}>
+						Logout
+					</Link>
+				) : null}
+			</div>
+
+			<span />
+			<span />
 			<Toggler theme={theme} toggleTheme={themeToggler} />
-			{cookies.email ? (
-				<p className="welcome">Welcome, {cookies.username}!</p>
-			) : null}
 		</StyledMenu>
 	);
 };

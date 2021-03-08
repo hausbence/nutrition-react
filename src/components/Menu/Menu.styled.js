@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const StyledMenu = styled.nav`
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
+	align-items: center;
 	background: ${({ theme }) => theme.primaryLight};
 	transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
 	height: 100vh;
@@ -38,8 +39,20 @@ export const StyledMenu = styled.nav`
 	input[type="text"] {
 		border: none;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
-		padding: 4px;
+		padding: 5px;
+		width: 200px;
 		margin-bottom: 3px;
 		border-radius: 5px;
+	}
+	.menupoints {
+		width: 200px;
+		padding: 5px;
+		display: flex;
+		flex-direction: column;
+	}
+	img {
+		background: ${({ theme }) => theme.background};
+		border-radius: 100px;
+		padding: 5px;
 	}
 `;
