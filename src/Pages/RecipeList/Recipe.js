@@ -42,14 +42,6 @@ const Recipe = (props) => {
 								: recipe[0].title}
 						</h2>
 					</div>
-					<div className="time">
-						<h6>{recipe[0].readyInMinutes}</h6>
-						<img src={clock} alt="time" width="32px" />
-					</div>
-					<div className="likes">
-						<h6>{recipe[0].aggregateLikes}</h6>
-						<img src={like} alt="likes" width="32px" />
-					</div>
 				</StyledRecipe>
 			</Link>
 		);
