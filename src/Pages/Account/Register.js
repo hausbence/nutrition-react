@@ -1,13 +1,16 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import AuthService from "../services/auth.service";
+import { StyledForm } from "./Forms.styled";
 
 const Register = (props) => {
+	// eslint-disable-next-line no-unused-vars
 	const { register, handleSubmit } = useForm();
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	// eslint-disable-next-line no-unused-vars
 	const [successful, setSuccessful] = useState(false);
 	const [message, setMessage] = useState("");
 
@@ -34,6 +37,7 @@ const Register = (props) => {
 			(response) => {
 				setMessage(response.data.message);
 				setSuccessful(true);
+				props.history.push("/login");
 			},
 			(error) => {
 				const resMessage =
@@ -50,11 +54,7 @@ const Register = (props) => {
 	};
 
 	return (
-		<div className="form">
-			<br />
-			<br />
-			<br />
-			<br />
+		<StyledForm>
 			<h2 className="loginHeader">Registration</h2>
 			<form onSubmit={handleSubmit(handleRegister)}>
 				<div className="input-fields">
@@ -99,10 +99,10 @@ const Register = (props) => {
 						/>
 					</div>
 				</div>
-				<input type="submit" />
+				<input type="submit" value="Submit" />
 			</form>
 			{message}
-		</div>
+		</StyledForm>
 	);
 };
 

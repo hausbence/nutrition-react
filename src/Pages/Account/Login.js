@@ -1,19 +1,7 @@
-import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
+import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-
-const required = (value) => {
-	if (!value) {
-		return (
-			<div className="alert alert-danger" role="alert">
-				This field is required!
-			</div>
-		);
-	}
-};
+import { StyledForm } from "./Forms.styled";
 
 const Login = (props) => {
 	const API_URL = "http://localhost:8080/api/auth/";
@@ -25,11 +13,10 @@ const Login = (props) => {
 		"username",
 		"user",
 	]);
-	const form = useRef();
-	const checkBtn = useRef();
 
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	// eslint-disable-next-line no-unused-vars
 	const [loading, setLoading] = useState(false);
 	const [message, setMessage] = useState("");
 
@@ -81,39 +68,45 @@ const Login = (props) => {
 
 				setLoading(false);
 				setMessage(resMessage);
+				console.log(cookies);
 			}
 		);
 	};
 
 	return (
-		<div className="form">
+		<StyledForm>
 			<h2 className="loginHeader">Login</h2>
 			<form onSubmit={handleLogin}>
-				<label htmlFor="username">Username</label>
-				<input
-					type="text"
-					className="input-style"
-					name="username"
-					value={username}
-					placeholder="Username"
-					onChange={onChangeUsername}
-					required
-				/>
-
-				<label htmlFor="password">Password</label>
-				<input
-					type="password"
-					className="input-style"
-					name="password"
-					value={password}
-					placeholder="Password"
-					onChange={onChangePassword}
-					required
-				/>
-				<input type="submit" />
+				<div className="input-fields">
+					<div className="field">
+						<label htmlFor="username">Username</label>
+						<input
+							type="text"
+							className="input-style"
+							name="username"
+							value={username}
+							placeholder="Username"
+							onChange={onChangeUsername}
+							required
+						/>
+					</div>
+					<div className="field">
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							className="input-style"
+							name="password"
+							value={password}
+							placeholder="Password"
+							onChange={onChangePassword}
+							required
+						/>
+					</div>
+				</div>
+				<input type="submit" value="Submit" />
 			</form>
 			{message}
-		</div>
+		</StyledForm>
 	);
 };
 
