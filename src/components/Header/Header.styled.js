@@ -16,12 +16,4 @@ export const StyledHeader = styled.div`
 		margin: 5px 0px 0px 0px;
 		color: ${({ theme }) => theme.primaryDark};
 	}
-
-	input[type="text"] {
-		border: none;
-		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
-		padding: 4px;
-		margin-bottom: 3px;
-		border-radius: 5px;
-	}
 `;
