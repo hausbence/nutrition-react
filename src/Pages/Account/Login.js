@@ -50,6 +50,7 @@ const Login = (props) => {
 	};
 
 	const handleLogin = (e) => {
+		e.preventDefault();
 		setMessage("");
 		setLoading(true);
 
@@ -68,7 +69,6 @@ const Login = (props) => {
 
 				setLoading(false);
 				setMessage(resMessage);
-				console.log(cookies);
 			}
 		);
 	};
