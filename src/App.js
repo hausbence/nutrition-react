@@ -19,7 +19,6 @@ import { ThemeStyleContext } from "./ThemeStyleContext";
 const App = () => {
 	const themeContext = useContext(ThemeStyleContext);
 	const [theme, setTheme] = useState("");
-
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
 
 	React.useEffect(() => {

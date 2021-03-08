@@ -26,7 +26,6 @@ const Menu = ({ open, ...props }) => {
 		removeCookie("id", 0);
 		removeCookie("username", "");
 	};
-
 	const handleKeyPress = (event) => {
 		if (event.key === "Enter") {
 			history.push({
