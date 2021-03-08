@@ -3,8 +3,6 @@ import { Markup } from "interweave";
 
 import { StyledRecipe } from "./Recipe.styled";
 import { Link } from "react-router-dom";
-import clock from "../../resources/clock.png";
-import like from "../../resources/like.png";
 
 const Recipe = (props) => {
 	let content;
