@@ -40,7 +40,7 @@ export const StyledMenu = styled.nav`
 		border: none;
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
 		padding: 5px;
-		width: 200px;
+		width: 190px;
 		margin-bottom: 3px;
 		border-radius: 5px;
 	}
@@ -53,6 +53,6 @@ export const StyledMenu = styled.nav`
 	img {
 		background: ${({ theme }) => theme.background};
 		border-radius: 100px;
-		padding: 5px;
+		padding: 2px;
 	}
 `;
