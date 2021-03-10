@@ -76,7 +76,7 @@ const Login = (props) => {
 	return (
 		<StyledForm>
 			<h2 className="loginHeader">Login</h2>
-			<form onSubmit={handleLogin}>
+			<form>
 				<div className="input-fields">
 					<div className="field">
 						<label htmlFor="username">Username</label>
@@ -103,7 +103,7 @@ const Login = (props) => {
 						/>
 					</div>
 				</div>
-				<input type="submit" value="Submit" />
+				<button onClick={handleLogin}>Submit</button>
 			</form>
 			{message}
 		</StyledForm>

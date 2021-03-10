@@ -3,6 +3,18 @@ import { StyledMealPlannerPage } from "./MealPlannerPage.styled";
 
 const MealPlannerPage = () => {
 	const [calories, setCalories] = useState(0);
+	const dietList = [
+		"gluten free",
+		"ketogenic",
+		"vegetarian",
+		"lacto",
+		"ovo",
+		"vegan",
+		"pescatarian",
+		"paleolithic",
+		"primal",
+		"whole 30",
+	];
 
 	const onChangeCalories = (e) => {
 		const calories = e.target.value;

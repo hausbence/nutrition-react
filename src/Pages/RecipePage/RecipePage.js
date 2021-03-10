@@ -22,6 +22,7 @@ const RecipePage = (props) => {
 		nutritionUrl,
 	]);
 
+	console.log(recipe.diets);
 	useEffect(() => {
 		if (fetchedData) {
 			setRecipe(fetchedData.data);
