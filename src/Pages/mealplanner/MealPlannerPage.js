@@ -4,16 +4,16 @@ import { StyledMealPlannerPage } from "./MealPlannerPage.styled";
 const MealPlannerPage = () => {
 	const [calories, setCalories] = useState(0);
 	const dietList = [
-		"gluten free",
-		"ketogenic",
-		"vegetarian",
-		"lacto",
-		"ovo",
-		"vegan",
-		"pescatarian",
-		"paleolithic",
-		"primal",
-		"whole 30",
+		"Gluten Free",
+		"Ketogenic",
+		"Vegetarian",
+		"Lacto-Vegetarian",
+		"Ovo-Vegetarian",
+		"Vegan",
+		"Pescetarian",
+		"Paleo",
+		"Primal",
+		"Whole30",
 	];
 
 	const onChangeCalories = (e) => {
@@ -37,6 +37,10 @@ const MealPlannerPage = () => {
 						required
 						max="10000"
 					/>
+					<label for="diets">Choose diet(s):</label>
+					<select name="diets" size="1">
+						<option value="volvo">Volvo</option>
+					</select>
 				</form>
 			</StyledMealPlannerPage>
 		</React.Fragment>
