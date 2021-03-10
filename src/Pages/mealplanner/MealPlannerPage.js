@@ -65,10 +65,13 @@ const MealPlannerPage = () => {
 		if (event.key === "Enter") {
 			event.preventDefault();
 			let input = event.target.value;
-
-			Axios.get(baseUrl + input).then((res) => {
-				setSearchedIngredients(res);
-			});
+			if (input === "") {
+				setSearchedIngredients([]);
+			} else {
+				Axios.get(baseUrl + input).then((res) => {
+					setSearchedIngredients(res);
+				});
+			}
 		}
 	};
 
