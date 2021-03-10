@@ -32,19 +32,26 @@ const MealPlannerPage = () => {
 	};
 
 	const addToExcludedIngredients = (ingredient) => {
-		console.log(ingredient);
-		if (excludedIngredients.includes(ingredient)) {
-			removeFromExcludedIngredients(ingredient);
-		} else {
+		let duplicate = false;
+		for (let i = 0; i < excludedIngredients.length; i++) {
+			if (excludedIngredients[i].name === ingredient.name) {
+				removeFromExcludedIngredients(ingredient);
+				duplicate = true;
+			}
+		}
+		if (duplicate !== true) {
 			const newExcludedIngredientsArray = [...excludedIngredients, ingredient];
 			setExcludedIngredients(newExcludedIngredientsArray);
 		}
 	};
 
 	const removeFromExcludedIngredients = (ingredientToRemove) => {
-		const newExcludedIngredientsArray = excludedIngredients.filter(
-			(ingredient) => ingredient !== ingredientToRemove
-		);
+		const newExcludedIngredientsArray = [];
+		for (let i = 0; i < excludedIngredients.length; i++) {
+			if (excludedIngredients[i].name !== ingredientToRemove.name) {
+				newExcludedIngredientsArray.push(excludedIngredients[i]);
+			}
+		}
 		setExcludedIngredients(newExcludedIngredientsArray);
 	};
 
