@@ -42,6 +42,9 @@ const Menu = ({ open, ...props }) => {
 				<Link to={"/"} tabIndex={tabIndex}>
 					Recipes
 				</Link>
+				<Link to={"/mealplanner"} tabIndex={tabIndex}>
+					Meal-Planner
+				</Link>
 				{!cookies.email ? (
 					<Link to="/registration" tabIndex={tabIndex}>
 						Register

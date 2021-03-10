@@ -9,6 +9,7 @@ import RecipePage from "./pages/RecipePage/RecipePage";
 import Search from "./pages/Search";
 import Register from "./pages/account/Register";
 import Login from "./pages/account/Login";
+import MealPlannerPage from "./pages/mealplanner/MealPlannerPage";
 
 import { Header } from "./components";
 import { GlobalStyles } from "./components/GlobalStyles";
@@ -36,6 +37,7 @@ const App = () => {
 							<Route exact path="/" component={MainPage} />
 							<Route exact path="/recipes/:searchTerm" component={Search} />
 							<Route exact path="/recipe/:id" component={RecipePage} />
+							<Route exact path="/mealplanner" component={MealPlannerPage} />
 							<Route exact path="/registration" component={Register} />
 							<Route exact path="/login" component={Login} />
 						</div>
