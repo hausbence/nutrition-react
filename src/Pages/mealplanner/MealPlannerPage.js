@@ -3,14 +3,20 @@ import { StyledMealPlannerPage } from "./MealPlannerPage.styled";
 import Axios from "axios";
 import DietSelector from "./DietSelector";
 import IngredientSelector from "./IngredientSelector";
+import { useForm } from "react-hook-form";
 
 const MealPlannerPage = () => {
+	const { handleSubmit } = useForm();
+
 	const [calories, setCalories] = useState(0);
 	const [selectedDiets, setSelectedDiets] = useState([]);
 	const [searchedIngredients, setSearchedIngredients] = useState([]);
 	const [excludedIngredients, setExcludedIngredients] = useState([]);
+	const [successful, setSuccessful] = useState(false);
+	const [message, setMessage] = useState("");
 
 	const baseUrl = "http://localhost:8080/ingredients/";
+	const API_URL = "http://localhost:8080/planner/plan/generate";
 
 	const onChangeCalories = (e) => {
 		const calories = e.target.value;
@@ -70,6 +76,27 @@ const MealPlannerPage = () => {
 		}
 	};
 
+	const handleFormPost = (e) => {
+		let calories = 1000;
+		let diet = "vegan";
+		let excludes = ["cucumber"];
+		setMessage("");
+		setSuccessful(false);
+
+		Axios.post(API_URL, {
+			calories,
+			diet,
+			excludes,
+		}).then(
+			(response) => {
+				console.log(response);
+			},
+			(error) => {
+				console.log(error);
+			}
+		);
+	};
+
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
@@ -104,6 +131,7 @@ const MealPlannerPage = () => {
 						addToExcludedIngredients={addToExcludedIngredients}
 						removeFromExcludedIngredients={removeFromExcludedIngredients}
 					/>
+					<button onClick={handleSubmit(handleFormPost)}>Submit</button>
 				</form>
 			</StyledMealPlannerPage>
 		</React.Fragment>
