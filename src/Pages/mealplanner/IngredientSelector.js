@@ -46,7 +46,6 @@ const IngredientSelector = (props) => {
 					  ))
 					: ""}
 			</div>
-			<h1>Excluded ingredients:</h1>
 			<div className="ingredients-container">
 				{excludedIngredients.length !== 0
 					? excludedIngredients.map((ingredient, i) => (

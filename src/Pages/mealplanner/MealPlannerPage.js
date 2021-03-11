@@ -118,40 +118,51 @@ const MealPlannerPage = () => {
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
-				<h1>Plan for a week</h1>
-				<form>
-					<label htmlFor="calories">Calories per day:</label>
-					<input
-						type="number"
-						className="input-style"
-						name="calories"
-						value={calories}
-						placeholder="Calories per day"
-						onChange={onChangeCalories}
-						required
-						max="10000"
-					/>
-					<DietSelector
-						addToSelectedDiets={addToSelectedDiets}
-						removeFromSelectedDiets={removeFromSelectedDiets}
-						selectedDiets={selectedDiets}
-					/>
-					<div>
-						<input
-							type="text"
-							placeholder="Search ingredients..."
-							onKeyPress={handleKeyPress}
-						/>
+				<div className="mealplanner-top">
+					<div className="mealplanner-left">
+						<div className="mealplanner-left-title">
+							<h2>Plan for a week</h2>
+						</div>
+						<div className="mealplanner-left-title">
+							<h2>Excluded ingredients:</h2>
+						</div>
 					</div>
-					<IngredientSelector
-						searchedIngredients={searchedIngredients}
-						excludedIngredients={excludedIngredients}
-						addToExcludedIngredients={addToExcludedIngredients}
-						removeFromExcludedIngredients={removeFromExcludedIngredients}
-					/>
-					<button onClick={handleSubmit(handleFormPost)}>Submit</button>
-				</form>
-				{message}
+
+					<form>
+						<label htmlFor="calories">Calories per day:</label>
+						<input
+							type="number"
+							className="input-style"
+							name="calories"
+							value={calories}
+							placeholder="Calories per day"
+							onChange={onChangeCalories}
+							required
+							max="10000"
+						/>
+						<DietSelector
+							addToSelectedDiets={addToSelectedDiets}
+							removeFromSelectedDiets={removeFromSelectedDiets}
+							selectedDiets={selectedDiets}
+						/>
+						<div>
+							<input
+								type="text"
+								placeholder="Search ingredients..."
+								onKeyPress={handleKeyPress}
+							/>
+						</div>
+						<IngredientSelector
+							searchedIngredients={searchedIngredients}
+							excludedIngredients={excludedIngredients}
+							addToExcludedIngredients={addToExcludedIngredients}
+							removeFromExcludedIngredients={removeFromExcludedIngredients}
+						/>
+						<button onClick={handleSubmit(handleFormPost)}>Submit</button>
+						{message}
+					</form>
+				</div>
+
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (
 					<MealCalendar weeklyPlan={weeklyPlan} />
 				) : (

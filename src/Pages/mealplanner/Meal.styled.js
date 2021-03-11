@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-let recipeWidth = 160;
+let recipeWidth = 170;
 
 export const StyledMeal = styled.div`
 	margin: 10px;
@@ -45,7 +45,9 @@ export const StyledMeal = styled.div`
 		overflow: hidden;
 		word-break: break-word;
 	}
-
+	.title h2 {
+		padding: 3px;
+	}
 	h6 {
 		margin: 0;
 	}
