@@ -12,6 +12,7 @@ const MealPlannerPage = () => {
 	const [selectedDiets, setSelectedDiets] = useState([]);
 	const [searchedIngredients, setSearchedIngredients] = useState([]);
 	const [excludedIngredients, setExcludedIngredients] = useState([]);
+	const [excludedIngredientNames, setExcludedIngredientNames] = useState([]);
 	const [successful, setSuccessful] = useState(false);
 	const [message, setMessage] = useState("");
 
@@ -47,21 +48,28 @@ const MealPlannerPage = () => {
 		}
 		if (duplicate !== true) {
 			const newExcludedIngredientsArray = [...excludedIngredients, ingredient];
+			const newExcludedIngredientNamesArray = [
+				...excludedIngredientNames,
+				ingredient.name,
+			];
 			setExcludedIngredients(newExcludedIngredientsArray);
+			setExcludedIngredientNames(newExcludedIngredientNamesArray);
 		}
 	};
 
 	const removeFromExcludedIngredients = (ingredientToRemove) => {
 		const newExcludedIngredientsArray = [];
+		const newExcludedIngredientNamesArray = [];
 		for (let i = 0; i < excludedIngredients.length; i++) {
 			if (excludedIngredients[i].name !== ingredientToRemove.name) {
 				newExcludedIngredientsArray.push(excludedIngredients[i]);
+				newExcludedIngredientNamesArray.push(excludedIngredients[i].name);
 			}
 		}
 		setExcludedIngredients(newExcludedIngredientsArray);
+		setExcludedIngredientNames(newExcludedIngredientNamesArray);
 	};
 
-	console.log(excludedIngredients);
 	const handleKeyPress = (event) => {
 		if (event.key === "Enter") {
 			event.preventDefault();
@@ -77,24 +85,27 @@ const MealPlannerPage = () => {
 	};
 
 	const handleFormPost = (e) => {
-		let calories = 1000;
-		let diet = "vegan";
-		let excludes = ["cucumber"];
-		setMessage("");
-		setSuccessful(false);
+		console.log(calories, selectedDiets, excludedIngredientNames);
+		// let calories = 1000;
+		// let diet = ["vegan", "paleo"];
+		// let excludes = ["goat"];
+		// setMessage("");
+		// setSuccessful(false);
 
-		Axios.post(API_URL, {
-			calories,
-			diet,
-			excludes,
-		}).then(
-			(response) => {
-				console.log(response);
-			},
-			(error) => {
-				console.log(error);
-			}
-		);
+		// Axios.get(API_URL, {
+		// 	calories,
+		// 	diet,
+		// 	excludes,
+		// }).then(
+		// 	(response) => {
+		// 		console.log(response);
+		// 		setSuccessful(true);
+		// 	},
+		// 	(error) => {
+		// 		console.log(error);
+		// 		console.log(successful);
+		// 	}
+		// );
 	};
 
 	return (
@@ -133,6 +144,7 @@ const MealPlannerPage = () => {
 					/>
 					<button onClick={handleSubmit(handleFormPost)}>Submit</button>
 				</form>
+				{message}
 			</StyledMealPlannerPage>
 		</React.Fragment>
 	);
