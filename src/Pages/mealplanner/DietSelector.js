@@ -31,12 +31,15 @@ const DietSelector = (props) => {
 
 	content = (
 		<div>
-			<div className="diets-selector">
-				{dietList.map((diet, i) => (
-					<button value={diet} key={i} onClick={onAddButtonClick}>
-						{diet}
-					</button>
-				))}
+			<div className="dropdown">
+				<span>Select diet(s)</span>
+				<div className="dropdown-content">
+					{dietList.map((diet, i) => (
+						<button value={diet} key={i} onClick={onAddButtonClick}>
+							{diet}
+						</button>
+					))}
+				</div>
 			</div>
 			<div className="selected-diets">
 				{selectedDiets.map((diet, i) => (

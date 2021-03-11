@@ -22,8 +22,8 @@ const IngredientSelector = (props) => {
 	};
 
 	content = (
-		<div>
-			<div className="ingredients-container">
+		<div className="ingredients-container">
+			<div className="ingredients-container-search">
 				{searchedIngredients.length !== 0
 					? searchedIngredients.data.results.map((ingredient, i) => (
 							<div
@@ -46,7 +46,7 @@ const IngredientSelector = (props) => {
 					  ))
 					: ""}
 			</div>
-			<div className="ingredients-container">
+			<div className="ingredients-container-selected">
 				{excludedIngredients.length !== 0
 					? excludedIngredients.map((ingredient, i) => (
 							<div

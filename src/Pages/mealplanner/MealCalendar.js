@@ -21,14 +21,18 @@ const MealCalendar = (props) => {
 		<StyledMealCalendar>
 			<div className="weekly-plan">
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0
-					? daysOfTheWeek.map((day, index) => (
-							<div className="day-container" key={index}>
-								<h3 className="day-name">{day}</h3>
-								{weeklyPlan[day].meals.map((meal) => (
-									<Meal meal={meal} key={meal.id}></Meal>
-								))}
-							</div>
-					  ))
+					? daysOfTheWeek.map((day, index) =>
+							weeklyPlan[day] !== undefined ? (
+								<div className="day-container" key={index}>
+									<h3 className="day-name">{day}</h3>
+									{weeklyPlan[day].meals.map((meal) => (
+										<Meal meal={meal} key={meal.id}></Meal>
+									))}
+								</div>
+							) : (
+								""
+							)
+					  )
 					: ""}
 			</div>
 		</StyledMealCalendar>

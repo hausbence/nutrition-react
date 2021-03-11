@@ -27,8 +27,26 @@ export const StyledMealPlannerPage = styled.div`
 		margin: 0;
 		padding: 0px 30px;
 	}
-	.ingredients-container {
+	form {
+		padding: 10px;
 		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.mealplanner-topright {
+		flex-grow: 2;
+	}
+	.mealplanner-bottomright {
+		flex-grow: 2;
+	}
+	.ingredients-container-search {
+		max-width: 500px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ingredients-container-selected {
+		display: flex;
+		flex-wrap: wrap;
 	}
 	.ingredient-item {
 		display: block;
@@ -37,5 +55,21 @@ export const StyledMealPlannerPage = styled.div`
 		display: flex;
 		max-width: 1400px;
 		margin: auto;
+	}
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f9f9f9;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+		padding: 12px 16px;
+		z-index: 1;
+	}
+	.dropdown:hover .dropdown-content {
+		display: block;
 	}
 `;

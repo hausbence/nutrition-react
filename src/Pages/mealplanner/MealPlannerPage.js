@@ -129,37 +129,40 @@ const MealPlannerPage = () => {
 					</div>
 
 					<form>
-						<label htmlFor="calories">Calories per day:</label>
-						<input
-							type="number"
-							className="input-style"
-							name="calories"
-							value={calories}
-							placeholder="Calories per day"
-							onChange={onChangeCalories}
-							required
-							max="10000"
-						/>
-						<DietSelector
-							addToSelectedDiets={addToSelectedDiets}
-							removeFromSelectedDiets={removeFromSelectedDiets}
-							selectedDiets={selectedDiets}
-						/>
-						<div>
+						<div className="mealplanner-topright">
+							<label htmlFor="calories">Target calories per day:</label>
+							<input
+								type="number"
+								className="input-style"
+								name="calories"
+								value={calories}
+								placeholder="Calories per day"
+								onChange={onChangeCalories}
+								required
+								max="10000"
+							/>
+							<DietSelector
+								addToSelectedDiets={addToSelectedDiets}
+								removeFromSelectedDiets={removeFromSelectedDiets}
+								selectedDiets={selectedDiets}
+							/>
+						</div>
+						<div className="mealplanner-bottomright">
 							<input
 								type="text"
 								placeholder="Search ingredients..."
 								onKeyPress={handleKeyPress}
 							/>
+
+							<IngredientSelector
+								searchedIngredients={searchedIngredients}
+								excludedIngredients={excludedIngredients}
+								addToExcludedIngredients={addToExcludedIngredients}
+								removeFromExcludedIngredients={removeFromExcludedIngredients}
+							/>
+							<button onClick={handleSubmit(handleFormPost)}>Submit</button>
+							{message}
 						</div>
-						<IngredientSelector
-							searchedIngredients={searchedIngredients}
-							excludedIngredients={excludedIngredients}
-							addToExcludedIngredients={addToExcludedIngredients}
-							removeFromExcludedIngredients={removeFromExcludedIngredients}
-						/>
-						<button onClick={handleSubmit(handleFormPost)}>Submit</button>
-						{message}
 					</form>
 				</div>
 
