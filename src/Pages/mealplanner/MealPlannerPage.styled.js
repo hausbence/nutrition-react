@@ -9,4 +9,7 @@ export const StyledMealPlannerPage = styled.div`
 	.ingredient-item {
 		display: block;
 	}
+	.weekly-plan {
+		display: flex;
+	}
 `;
