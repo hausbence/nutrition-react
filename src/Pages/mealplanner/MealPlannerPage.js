@@ -4,7 +4,7 @@ import Axios from "axios";
 import DietSelector from "./DietSelector";
 import IngredientSelector from "./IngredientSelector";
 import { useForm } from "react-hook-form";
-import Recipe from "../RecipeList/Recipe";
+import MealCalendar from "./MealCalendar";
 
 const MealPlannerPage = () => {
 	const { handleSubmit } = useForm();
@@ -115,7 +115,6 @@ const MealPlannerPage = () => {
 		setWeeklyPlan(weeklyPlanDict);
 	};
 
-	console.log(weeklyPlan);
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
@@ -153,18 +152,11 @@ const MealPlannerPage = () => {
 					<button onClick={handleSubmit(handleFormPost)}>Submit</button>
 				</form>
 				{message}
-				<div className="weekly-plan">
-					{weeklyPlan !== undefined && weeklyPlan.length !== 0
-						? Object.keys(weeklyPlan).map((key, index) => (
-								<div className="day-container" key={index}>
-									<h3>{key}</h3>
-									{weeklyPlan[key].meals.map((meal) => (
-										<Recipe recipe={meal} key={meal.id}></Recipe>
-									))}
-								</div>
-						  ))
-						: ""}
-				</div>
+				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (
+					<MealCalendar weeklyPlan={weeklyPlan} />
+				) : (
+					""
+				)}
 			</StyledMealPlannerPage>
 		</React.Fragment>
 	);
