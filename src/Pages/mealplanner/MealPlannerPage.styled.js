@@ -40,16 +40,18 @@ export const StyledMealPlannerPage = styled.div`
 		flex-grow: 2;
 	}
 	.ingredients-container-search {
-		max-width: 500px;
-		display: flex;
-		flex-wrap: wrap;
+		max-width: 700px;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
 	}
 	.ingredients-container-selected {
 		display: flex;
 		flex-wrap: wrap;
+		max-width: 700px;
 	}
 	.ingredient-item {
-		display: block;
+		display: inline-block;
 	}
 	.weekly-plan {
 		display: flex;
