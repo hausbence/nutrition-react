@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import Axios from "axios";
 
 import AuthService from "../services/auth.service";
 import { StyledForm } from "./Forms.styled";
@@ -14,7 +13,6 @@ const Register = (props) => {
 	// eslint-disable-next-line no-unused-vars
 	const [successful, setSuccessful] = useState(false);
 	const [message, setMessage] = useState("");
-	const PLANNER_API_URL = "http://localhost:8080/planner/connect";
 
 	const onChangeUsername = (e) => {
 		const username = e.target.value;
@@ -29,20 +27,6 @@ const Register = (props) => {
 	const onChangePassword = (e) => {
 		const password = e.target.value;
 		setPassword(password);
-	};
-
-	const connectToPlanner = () => {
-		Axios.post(PLANNER_API_URL, {
-			username: username,
-		}).then(
-			(response) => {
-				let responseData = response;
-				console.log(response);
-			},
-			(error) => {
-				console.log(error);
-			}
-		);
 	};
 
 	const handleRegister = (e) => {
@@ -116,7 +100,6 @@ const Register = (props) => {
 					</div>
 				</div>
 				<button onClick={handleSubmit(handleRegister)}>Submit</button>
-				<button onClick={connectToPlanner}>ASD</button>
 			</form>
 			{message}
 		</StyledForm>
