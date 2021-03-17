@@ -23,11 +23,12 @@ export const StyledMealPlannerPage = styled.div`
 	.mealplanner-toptop h1 {
 		margin: 0;
 	}
-	mealplanner-form {
+	.mealplanner-form {
 		padding: 10px;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
+		align-items: center;
 	}
 	.weekly-plan {
 		display: flex;
@@ -102,6 +103,7 @@ export const StyledMealPlannerPage = styled.div`
   		-moz-appearance: textfield;
 	}
 	.mealplanner-ingredients {
+		width: 800px;
 		border-radius: 5px;
 		padding: 5px;
 		background: ${({ theme }) => theme.primaryLight};
@@ -109,17 +111,30 @@ export const StyledMealPlannerPage = styled.div`
 	.ingredients-visible {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+	}
+	.ingredients-visible h4 {
+		margin: 5px;
 	}
 	.arrow {
-		
+		margin: 5px;
+		padding: 5px;
 	}
-	.ingredients-search {
+	.ingredients-search input {
+		padding: 3px;
 	}
 	.open {
 		display: flex;
+		flex-wrap: wrap;
 	}
 	.hidden {
 		display: none;
+	}
+	.ingredients-titles {
+		justify-content: space-around;
+		flex-grow: 2;
+		width: 100%;
+		display: flex;
 	}
 	.ingredients-container-search {
 		width: 50%;
@@ -151,6 +166,7 @@ export const StyledMealPlannerPage = styled.div`
 	.ingredient-item-label {
 		position: absolute;
 		bottom: 0;
+		color: ${({ theme }) => theme.text};
 		background: linear-gradient(
 			to bottom,
 			rgba(0, 0, 0, 0),
@@ -165,5 +181,23 @@ export const StyledMealPlannerPage = styled.div`
 		overflow: hidden;
 		word-break: break-word;
 		text-align: center;
+	}
+	.mealplanner-form button {
+		margin: 10px;
+		padding: 10px 20px;
+		cursor: pointer;
+	}
+	i {
+		border: solid #4cb8c4;
+		border-width: 0 6px 6px 0;
+		display: inline-block;
+		padding: 3px;
+		transition: all 0.3s linear;
+	 }
+	.downArrow {
+		transform: rotate(45deg);
+	}
+	.leftArrow {
+		transform: rotate(135deg);
 	}
 `;

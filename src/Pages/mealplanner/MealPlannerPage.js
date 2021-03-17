@@ -76,6 +76,7 @@ const MealPlannerPage = () => {
 	const handleKeyPress = (event) => {
 		if (event.key === "Enter") {
 			event.preventDefault();
+			setIsOpen("open");
 			let input = event.target.value;
 			if (input === "") {
 				setSearchedIngredients([]);
@@ -122,7 +123,6 @@ const MealPlannerPage = () => {
 		} else {
 			setIsOpen("hidden");
 		}
-		console.log(isOpen);
 	};
 
 	return (
@@ -163,6 +163,7 @@ const MealPlannerPage = () => {
 						</div>
 						<div className="mealplanner-ingredients">
 							<div className="ingredients-visible">
+								<h4>Allergies, ingredients to exclude:</h4>
 								<div className="ingredients-search">
 									<input
 										type="text"
@@ -171,7 +172,11 @@ const MealPlannerPage = () => {
 									/>
 								</div>
 								<div className="arrow" onClick={openContainer}>
-									X
+									{isOpen === "open" ? (
+										<i class="downArrow"></i>
+									) : (
+										<i class="leftArrow"></i>
+									)}
 								</div>
 							</div>
 							<IngredientSelector
@@ -182,7 +187,9 @@ const MealPlannerPage = () => {
 								removeFromExcludedIngredients={removeFromExcludedIngredients}
 							/>
 						</div>
-						<button onClick={handleSubmit(handleFormPost)}>Submit</button>
+						<button onClick={handleSubmit(handleFormPost)}>
+							Generate plan
+						</button>
 					</div>
 					{message}
 				</div>
