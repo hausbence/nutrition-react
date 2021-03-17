@@ -29,22 +29,6 @@ export const StyledMealPlannerPage = styled.div`
 		flex-wrap: wrap;
 		flex-direction: column;
 	}
-	.mealplanner-diets {
-	}
-	.ingredients-container-search {
-		max-width: 700px;
-		overflow-x: scroll;
-		overflow-y: hidden;
-		white-space: nowrap;
-	}
-	.ingredients-container-selected {
-		display: flex;
-		flex-wrap: wrap;
-		max-width: 700px;
-	}
-	.ingredient-item {
-		display: inline-block;
-	}
 	.weekly-plan {
 		display: flex;
 		max-width: 1400px;
@@ -100,6 +84,8 @@ export const StyledMealPlannerPage = styled.div`
 		display: none;
 	}
 	.mealplanner-calories input[type=number] {
+		border-radius: 3px;
+		border: none;
 		margin: 5px;
 		height: 30px;
 		width: 80px;
@@ -114,5 +100,49 @@ export const StyledMealPlannerPage = styled.div`
 	}
 	input[type=number] {
   		-moz-appearance: textfield;
+	}
+	.ingredients-container {
+		display: flex;
+	}
+	.ingredients-container-search {
+		width: 50%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ingredients-container-selected {
+		width: 50%;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.ingredient-item {
+		position: relative;
+		height: 100px;
+		width: 100px;
+		cursor: pointer;
+	}
+	.recipe_image {
+		display: block;
+		width: 100px;
+		height: 100px;
+		object-fit: cover;
+		border-radius: 5px 5px 0 0;
+	}
+	.ingredient-item-label {
+		position: absolute;
+		bottom: 0;
+		background: linear-gradient(
+			to bottom,
+			rgba(0, 0, 0, 0),
+			rgba(0, 0, 0, 0.9),
+			rgba(0, 0, 0, 0.9)
+		);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100px;
+		height: 60px;
+		overflow: hidden;
+		word-break: break-word;
+		text-align: center;
 	}
 `;

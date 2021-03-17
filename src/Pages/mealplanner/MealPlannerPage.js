@@ -115,8 +115,6 @@ const MealPlannerPage = () => {
 		setWeeklyPlan(weeklyPlanDict);
 	};
 
-	console.log(selectedDiets);
-
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
@@ -153,23 +151,24 @@ const MealPlannerPage = () => {
 							/>
 							<h3>calories a day.</h3>
 						</div>
-						<div className="mealplanner-bottomright">
-							<input
-								type="text"
-								placeholder="Search ingredients..."
-								onKeyPress={handleKeyPress}
-							/>
-
+						<div className="mealplanner-ingredients">
+							<div className="ingredients-search">
+								<input
+									type="text"
+									placeholder="Search ingredients..."
+									onKeyPress={handleKeyPress}
+								/>
+							</div>
 							<IngredientSelector
 								searchedIngredients={searchedIngredients}
 								excludedIngredients={excludedIngredients}
 								addToExcludedIngredients={addToExcludedIngredients}
 								removeFromExcludedIngredients={removeFromExcludedIngredients}
 							/>
-							<button onClick={handleSubmit(handleFormPost)}>Submit</button>
-							{message}
 						</div>
+						<button onClick={handleSubmit(handleFormPost)}>Submit</button>
 					</div>
+					{message}
 				</div>
 
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (

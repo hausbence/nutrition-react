@@ -8,15 +8,27 @@ const IngredientSelector = (props) => {
 	const picUrl = "https://spoonacular.com/cdn/ingredients_100x100/";
 
 	const onSearchedIngredientClick = (e) => {
-		let ingredient = { name: e.target.alt, image: e.target.src };
 		if (e.target.alt !== undefined) {
+			let ingredient = { name: e.target.alt, image: e.target.src };
+			props.addToExcludedIngredients(ingredient);
+		} else {
+			let ingredient = {
+				name: e.target.innerText,
+				image: e.target.getAttribute("imgsrc"),
+			};
 			props.addToExcludedIngredients(ingredient);
 		}
 	};
 
 	const onExcludedIngredientClick = (e) => {
-		let ingredient = { name: e.target.alt, image: e.target.src };
 		if (e.target.alt !== undefined) {
+			let ingredient = { name: e.target.alt, image: e.target.src };
+			props.removeFromExcludedIngredients(ingredient);
+		} else {
+			let ingredient = {
+				name: e.target.innerText,
+				image: e.target.getAttribute("imgsrc"),
+			};
 			props.removeFromExcludedIngredients(ingredient);
 		}
 	};
@@ -32,9 +44,18 @@ const IngredientSelector = (props) => {
 								value={ingredient.name}
 								onClick={onSearchedIngredientClick}
 							>
-								<div className="ingredient-item-labels">{ingredient.name}</div>
+								<div
+									className="ingredient-item-label"
+									imgsrc={picUrl + ingredient.image}
+								>
+									{ingredient.name}
+								</div>
 								{ingredient.image !== undefined ? (
-									<img src={picUrl + ingredient.image} alt={ingredient.name} />
+									<img
+										src={picUrl + ingredient.image}
+										alt={ingredient.name}
+										className="recipe_image"
+									/>
 								) : (
 									<img
 										className="recipe_image"
@@ -55,9 +76,18 @@ const IngredientSelector = (props) => {
 								value={ingredient.name}
 								onClick={onExcludedIngredientClick}
 							>
-								<div className="ingredient-item-labels">{ingredient.name}</div>
+								<div
+									className="ingredient-item-label"
+									imgsrc={picUrl + ingredient.image}
+								>
+									{ingredient.name}
+								</div>
 								{ingredient.image !== undefined ? (
-									<img src={ingredient.image} alt={ingredient.name} />
+									<img
+										src={ingredient.image}
+										alt={ingredient.name}
+										className="recipe_image"
+									/>
 								) : (
 									<img
 										className="recipe_image"
