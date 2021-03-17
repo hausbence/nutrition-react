@@ -128,24 +128,32 @@ const MealPlannerPage = () => {
 		}
 	};
 
-	const savePlan = () => {
-		console.log(cookies.username);
-		// Axios.get(API_URL, {
-		// 	calories: calories,
-		// 	diet: selectedDiets,
-		// 	excludes: excludedIngredients,
-		// }).then(
-		// 	(response) => {
-		// 		let weeklyPlanObject = response.data.week;
-		// 		formatObjectToArray(weeklyPlanObject);
-		// 		setSuccessful(true);
-		// 	},
-		// 	(error) => {
-		// 		console.log(error);
-		// 		console.log(successful);
-		// 	}
-		// );
+	const createJsonToSave = () => {
+		let json = { username: cookies.username };
+		let meals = [];
+		Object.values(weeklyPlan).map((day) =>
+			meals.push({ meals: day.meals, nutrients: day.nutrients })
+		);
+		json.days = meals;
+		return json;
 	};
+
+	const savePlan = () => {
+		let json = createJsonToSave();
+		console.log(json);
+		Axios.post(API_URL_SAVE, {
+			weeklyPlanRequest: json,
+		}).then(
+			(response) => {
+				console.log(response);
+			},
+			(error) => {
+				console.log(error);
+				console.log(successful);
+			}
+		);
+	};
+
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
