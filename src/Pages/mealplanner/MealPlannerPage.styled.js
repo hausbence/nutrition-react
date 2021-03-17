@@ -90,4 +90,29 @@ export const StyledMealPlannerPage = styled.div`
 			#3cd3ad
 		); 
 	}
+	.mealplanner-calories {
+		margin: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.mealplanner-calories label {
+		display: none;
+	}
+	.mealplanner-calories input[type=number] {
+		margin: 5px;
+		height: 30px;
+		width: 80px;
+		text-align: right;
+		padding: 3px;
+	}
+
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+  		-webkit-appearance: none;
+ 		 margin: 0;
+	}
+	input[type=number] {
+  		-moz-appearance: textfield;
+	}
 `;

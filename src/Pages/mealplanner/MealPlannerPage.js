@@ -139,17 +139,19 @@ const MealPlannerPage = () => {
 							/>
 						</div>
 						<div className="mealplanner-calories">
-							<label htmlFor="calories">Target calories per day:</label>
+							<label htmlFor="calories">calories</label>
+							<h3>I want to eat</h3>
 							<input
 								type="number"
 								className="input-style"
 								name="calories"
 								value={calories}
-								placeholder="Calories per day"
+								placeholder="1000"
 								onChange={onChangeCalories}
 								required
 								max="10000"
 							/>
+							<h3>calories a day.</h3>
 						</div>
 						<div className="mealplanner-bottomright">
 							<input
