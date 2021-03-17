@@ -15,29 +15,21 @@ export const StyledMealPlannerPage = styled.div`
 		flex-wrap: wrap;
 		min-height: 250px;
 	}
-	.mealplanner-left {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
+	.mealplanner-toptop {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 5px;
 	}
-	.mealplanner-left-title {
-		flex-grow: 2;
-	}
-	.mealplanner-left-title h2 {
+	.mealplanner-toptop h1 {
 		margin: 0;
-		padding: 0px 30px;
 	}
-	form {
+	mealplanner-form {
 		padding: 10px;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
 	}
-	.mealplanner-topright {
-		flex-grow: 2;
-	}
-	.mealplanner-bottomright {
-		flex-grow: 2;
+	.mealplanner-diets {
 	}
 	.ingredients-container-search {
 		max-width: 700px;
@@ -63,10 +55,11 @@ export const StyledMealPlannerPage = styled.div`
 	}
 	.diets-content span {
 		font-size: 20px;
-		font-weight: 500;
-		margin: 5px;
+		font-weight: 600;
+		height: 50px;
 	}
 	.diets {
+		margin: 10px 0;
 		display: flex;
 		flex-wrap: wrap;
 		height: 148px;

@@ -27,7 +27,7 @@ const DietSelector = (props) => {
 
 	content = (
 		<div className="diets-content">
-			<span> Let us know your diet(s)!</span>
+			<span>Ready to give it a shot? Let us know your diet(s).</span>
 			<div className="diets">
 				{dietList.map((diet, i) => (
 					<Diet

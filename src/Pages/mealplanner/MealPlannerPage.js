@@ -121,17 +121,24 @@ const MealPlannerPage = () => {
 		<React.Fragment>
 			<StyledMealPlannerPage>
 				<div className="mealplanner-top">
-					<div className="mealplanner-left">
-						<div className="mealplanner-left-title">
-							<h2>Plan for a week</h2>
-						</div>
-						<div className="mealplanner-left-title">
-							<h2>Excluded ingredients:</h2>
-						</div>
+					<div className="mealplanner-toptop">
+						<h1>Create your meal plan for a week</h1>
+						<p>
+							Our MealPlanner creates personalized meal plans based on your
+							diets, allergies, and target calories. Reach your diet and
+							nutritional goals with our weekly meal plans.
+							<b> Create your meal plan right here in seconds.</b>
+						</p>
 					</div>
-
-					<form>
-						<div className="mealplanner-topright">
+					<div className="mealplanner-form">
+						<div className="mealplanner-diets">
+							<DietSelector
+								addToSelectedDiets={addToSelectedDiets}
+								removeFromSelectedDiets={removeFromSelectedDiets}
+								selectedDiets={selectedDiets}
+							/>
+						</div>
+						<div className="mealplanner-calories">
 							<label htmlFor="calories">Target calories per day:</label>
 							<input
 								type="number"
@@ -142,11 +149,6 @@ const MealPlannerPage = () => {
 								onChange={onChangeCalories}
 								required
 								max="10000"
-							/>
-							<DietSelector
-								addToSelectedDiets={addToSelectedDiets}
-								removeFromSelectedDiets={removeFromSelectedDiets}
-								selectedDiets={selectedDiets}
 							/>
 						</div>
 						<div className="mealplanner-bottomright">
@@ -165,7 +167,7 @@ const MealPlannerPage = () => {
 							<button onClick={handleSubmit(handleFormPost)}>Submit</button>
 							{message}
 						</div>
-					</form>
+					</div>
 				</div>
 
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (
