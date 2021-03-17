@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-let recipeWidth = 170;
+let recipeWidth = 100;
 
 export const StyledMeal = styled.div`
-	margin: 10px;
+	margin: 5px;
 	width: ${recipeWidth}px;
 	height: ${recipeWidth}px;
 	position: relative;
@@ -44,26 +44,5 @@ export const StyledMeal = styled.div`
 		height: 80px;
 		overflow: hidden;
 		word-break: break-word;
-	}
-	.title h2 {
-		padding: 3px;
-	}
-	h6 {
-		margin: 0;
-	}
-
-	.time {
-		position: absolute;
-		bottom: 0;
-		display: block;
-		width: 50px;
-		height: 50px;
-	}
-	.likes {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-		display: block;
-		width: 50px;
 	}
 `;

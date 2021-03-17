@@ -13,7 +13,6 @@ export const StyledMealPlannerPage = styled.div`
 		width: 800px;
 		display flex;
 		flex-wrap: wrap;
-		min-height: 250px;
 	}
 	.mealplanner-toptop {
 		width: 100%;
@@ -24,16 +23,11 @@ export const StyledMealPlannerPage = styled.div`
 		margin: 0;
 	}
 	.mealplanner-form {
-		padding: 10px;
+		width: 800px;
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
 		align-items: center;
-	}
-	.weekly-plan {
-		display: flex;
-		max-width: 1400px;
-		margin: auto;
 	}
 	.diets-content {
 		text-align: center;
@@ -182,8 +176,8 @@ export const StyledMealPlannerPage = styled.div`
 		word-break: break-word;
 		text-align: center;
 	}
-	.mealplanner-form button {
-		margin: 10px;
+	button {
+		margin: 15px;
 		padding: 10px 20px;
 		cursor: pointer;
 	}
@@ -199,5 +193,16 @@ export const StyledMealPlannerPage = styled.div`
 	}
 	.leftArrow {
 		transform: rotate(135deg);
+	}
+	.weeklyplan-container {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 10px 0;
+	}
+	.weeklyplan-container button {
+		width: 130px;
 	}
 `;

@@ -5,6 +5,7 @@ import DietSelector from "./DietSelector";
 import IngredientSelector from "./IngredientSelector";
 import { useForm } from "react-hook-form";
 import MealCalendar from "./MealCalendar";
+import { useCookies } from "react-cookie";
 
 const MealPlannerPage = () => {
 	const { handleSubmit } = useForm();
@@ -15,12 +16,14 @@ const MealPlannerPage = () => {
 	const [searchedIngredients, setSearchedIngredients] = useState([]);
 	const [excludedIngredients, setExcludedIngredients] = useState([]);
 	const [excludedIngredientNames, setExcludedIngredientNames] = useState([]);
-	const [weeklyPlan, setWeeklyPlan] = useState({});
+	const [weeklyPlan, setWeeklyPlan] = useState("");
 	const [successful, setSuccessful] = useState(false);
 	const [message, setMessage] = useState("");
+	const [cookies] = useCookies(["username"]);
 
 	const baseUrl = "http://localhost:8080/ingredients/";
 	const API_URL = "http://localhost:8080/planner/plan/generate";
+	const API_URL_SAVE = "http://localhost:8080/planner/plan/generated/save";
 
 	const onChangeCalories = (e) => {
 		const calories = e.target.value;
@@ -125,6 +128,24 @@ const MealPlannerPage = () => {
 		}
 	};
 
+	const savePlan = () => {
+		console.log(cookies.username);
+		// Axios.get(API_URL, {
+		// 	calories: calories,
+		// 	diet: selectedDiets,
+		// 	excludes: excludedIngredients,
+		// }).then(
+		// 	(response) => {
+		// 		let weeklyPlanObject = response.data.week;
+		// 		formatObjectToArray(weeklyPlanObject);
+		// 		setSuccessful(true);
+		// 	},
+		// 	(error) => {
+		// 		console.log(error);
+		// 		console.log(successful);
+		// 	}
+		// );
+	};
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
@@ -173,9 +194,9 @@ const MealPlannerPage = () => {
 								</div>
 								<div className="arrow" onClick={openContainer}>
 									{isOpen === "open" ? (
-										<i class="downArrow"></i>
+										<i className="downArrow"></i>
 									) : (
-										<i class="leftArrow"></i>
+										<i className="leftArrow"></i>
 									)}
 								</div>
 							</div>
@@ -195,7 +216,10 @@ const MealPlannerPage = () => {
 				</div>
 
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (
-					<MealCalendar weeklyPlan={weeklyPlan} />
+					<div className="weeklyplan-container">
+						<MealCalendar weeklyPlan={weeklyPlan} />
+						<button onClick={savePlan}>Save</button>
+					</div>
 				) : (
 					""
 				)}
