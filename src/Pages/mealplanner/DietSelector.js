@@ -1,8 +1,8 @@
 import React from "react";
 // import { StyledIngredients } from "./Ingredients.styled";
+import Diet from "./Diet";
 
 const DietSelector = (props) => {
-	let selectedDiets = props.selectedDiets;
 	let content;
 	const dietList = [
 		"Gluten Free",
@@ -17,38 +17,25 @@ const DietSelector = (props) => {
 		"Whole30",
 	];
 
-	const onAddButtonClick = (e) => {
-		e.preventDefault();
-		const diet = e.target.value;
+	const onAddClick = (diet) => {
 		props.addToSelectedDiets(diet);
 	};
 
-	const onRemoveButtonClicK = (e) => {
-		e.preventDefault();
-		const dietToRemove = e.target.value;
-		props.removeFromSelectedDiets(dietToRemove);
+	const onRemoveClick = (diet) => {
+		props.removeFromSelectedDiets(diet);
 	};
 
 	content = (
-		<div>
-			<div className="dropdown">
-				<span>Select diet(s)</span>
-				<div className="dropdown-content">
-					{dietList.map((diet, i) => (
-						<button value={diet} key={i} onClick={onAddButtonClick}>
-							{diet}
-						</button>
-					))}
-				</div>
-			</div>
-			<div className="selected-diets">
-				{selectedDiets.map((diet, i) => (
-					<div key={i}>
-						{diet}
-						<button value={diet} onClick={onRemoveButtonClicK}>
-							X
-						</button>
-					</div>
+		<div className="diets-content">
+			<span> Let us know your diet(s)!</span>
+			<div className="diets">
+				{dietList.map((diet, i) => (
+					<Diet
+						key={i}
+						diet={diet}
+						onAddClick={onAddClick}
+						onRemoveClick={onRemoveClick}
+					/>
 				))}
 			</div>
 		</div>

@@ -115,6 +115,8 @@ const MealPlannerPage = () => {
 		setWeeklyPlan(weeklyPlanDict);
 	};
 
+	console.log(selectedDiets);
+
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>

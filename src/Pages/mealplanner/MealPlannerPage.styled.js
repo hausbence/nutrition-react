@@ -10,7 +10,7 @@ export const StyledMealPlannerPage = styled.div`
 	flex-wrap: wrap;
 	color: ${({ theme }) => theme.primaryDark};
 	.mealplanner-top {
-		width: 100%;
+		width: 800px;
 		display flex;
 		flex-wrap: wrap;
 		min-height: 250px;
@@ -58,20 +58,43 @@ export const StyledMealPlannerPage = styled.div`
 		max-width: 1400px;
 		margin: auto;
 	}
-	.dropdown {
-		position: relative;
-		display: inline-block;
+	.diets-content {
+		text-align: center;
 	}
-	.dropdown-content {
-		display: none;
-		position: absolute;
-		background-color: #f9f9f9;
-		min-width: 160px;
-		box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-		padding: 12px 16px;
-		z-index: 1;
+	.diets-content span {
+		font-size: 20px;
+		font-weight: 500;
+		margin: 5px;
 	}
-	.dropdown:hover .dropdown-content {
-		display: block;
+	.diets {
+		display: flex;
+		flex-wrap: wrap;
+		height: 148px;
+		width: 800px;
+	}
+	.diets .diet-item {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 156px;
+		height: 70px;
+		margin: 2px;
+		border-radius: 5px;
+		cursor: pointer;
+		background: ${({ theme }) => theme.primaryLight};
+	}
+
+	.diets .active {
+		background: #4cb8c4; 
+		background: -webkit-linear-gradient(
+			to right,
+			#4cb8c4,
+			#3cd3ad
+		);
+		background: linear-gradient(
+			to right,
+			#4cb8c4,
+			#3cd3ad
+		); 
 	}
 `;

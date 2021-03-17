@@ -16,7 +16,6 @@ const MealCalendar = (props) => {
 		"sunday",
 	];
 
-	console.log(weeklyPlan);
 	content = (
 		<StyledMealCalendar>
 			<div className="weekly-plan">
