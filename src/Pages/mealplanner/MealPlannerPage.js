@@ -9,6 +9,7 @@ import MealCalendar from "./MealCalendar";
 const MealPlannerPage = () => {
 	const { handleSubmit } = useForm();
 
+	const [isOpen, setIsOpen] = useState("hidden");
 	const [calories, setCalories] = useState(0);
 	const [selectedDiets, setSelectedDiets] = useState([]);
 	const [searchedIngredients, setSearchedIngredients] = useState([]);
@@ -115,6 +116,15 @@ const MealPlannerPage = () => {
 		setWeeklyPlan(weeklyPlanDict);
 	};
 
+	const openContainer = () => {
+		if (isOpen === "hidden") {
+			setIsOpen("open");
+		} else {
+			setIsOpen("hidden");
+		}
+		console.log(isOpen);
+	};
+
 	return (
 		<React.Fragment>
 			<StyledMealPlannerPage>
@@ -152,14 +162,20 @@ const MealPlannerPage = () => {
 							<h3>calories a day.</h3>
 						</div>
 						<div className="mealplanner-ingredients">
-							<div className="ingredients-search">
-								<input
-									type="text"
-									placeholder="Search ingredients..."
-									onKeyPress={handleKeyPress}
-								/>
+							<div className="ingredients-visible">
+								<div className="ingredients-search">
+									<input
+										type="text"
+										placeholder="Search ingredients..."
+										onKeyPress={handleKeyPress}
+									/>
+								</div>
+								<div className="arrow" onClick={openContainer}>
+									X
+								</div>
 							</div>
 							<IngredientSelector
+								isOpen={isOpen}
 								searchedIngredients={searchedIngredients}
 								excludedIngredients={excludedIngredients}
 								addToExcludedIngredients={addToExcludedIngredients}

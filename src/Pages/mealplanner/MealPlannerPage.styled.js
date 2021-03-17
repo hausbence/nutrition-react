@@ -101,20 +101,41 @@ export const StyledMealPlannerPage = styled.div`
 	input[type=number] {
   		-moz-appearance: textfield;
 	}
-	.ingredients-container {
+	.mealplanner-ingredients {
+		border-radius: 5px;
+		padding: 5px;
+		background: ${({ theme }) => theme.primaryLight};
+	}
+	.ingredients-visible {
 		display: flex;
+		justify-content: space-between;
+	}
+	.arrow {
+		
+	}
+	.ingredients-search {
+	}
+	.open {
+		display: flex;
+	}
+	.hidden {
+		display: none;
 	}
 	.ingredients-container-search {
 		width: 50%;
 		display: flex;
 		flex-wrap: wrap;
+		border-right: 2px solid grey;
+		align-content: flex-start;
 	}
 	.ingredients-container-selected {
 		width: 50%;
 		display: flex;
 		flex-wrap: wrap;
+		align-content: flex-start;
 	}
 	.ingredient-item {
+		margin: 8px 15px;
 		position: relative;
 		height: 100px;
 		width: 100px;

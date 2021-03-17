@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { StyledIngredients } from "./Ingredients.styled";
 
 const IngredientSelector = (props) => {
@@ -34,7 +34,7 @@ const IngredientSelector = (props) => {
 	};
 
 	content = (
-		<div className="ingredients-container">
+		<div className={["ingredients-container", props.isOpen].join(" ")}>
 			<div className="ingredients-container-search">
 				{searchedIngredients.length !== 0
 					? searchedIngredients.data.results.map((ingredient, i) => (
