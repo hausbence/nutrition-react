@@ -56,7 +56,7 @@ const Login = (props) => {
 
 		submitLogin(username, password).then(
 			() => {
-				props.history.push("/profile");
+				props.history.push("/");
 				window.location.reload();
 			},
 			(error) => {
