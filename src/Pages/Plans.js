@@ -6,26 +6,26 @@ const Plans = () => {
 	const API_URL = "http://localhost:8080/plan/generated/";
 
 	const [cookies] = useCookies(["username"]);
-	const [meals, setMeals] = useState([]);
+	const [days, setDays] = useState([]);
 
 	let content;
 
 	useEffect(() => {
 		Axios.get(API_URL + cookies.username).then((res) => {
 			if (res) {
-				setMeals(res.data.days);
+				setDays(res.data.days);
 			}
 		});
 		// eslint-disable-next-line
 	}, []);
 
-	console.log(meals);
+	console.log(days);
 
 	content = (
-		<div>
-			<br />
-			<br />
-			<p>test</p>
+		<div className="plans-container">
+			{days !== undefined && days.length !== 0
+				? Object.values(days).map((day) => console.log(day))
+				: ""}
 		</div>
 	);
 	return content;
