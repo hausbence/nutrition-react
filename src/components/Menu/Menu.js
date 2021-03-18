@@ -56,8 +56,8 @@ const Menu = ({ open, ...props }) => {
 					</Link>
 				) : null}
 				{cookies.email ? (
-					<Link to="/profile" tabIndex={tabIndex}>
-						Profile
+					<Link to="/plans" tabIndex={tabIndex}>
+						Plans
 					</Link>
 				) : null}
 				{cookies.email ? (

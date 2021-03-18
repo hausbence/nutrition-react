@@ -129,20 +129,22 @@ const MealPlannerPage = () => {
 	};
 
 	const createJsonToSave = () => {
-		let json = { username: cookies.username };
+		let json = {};
 		let meals = [];
 		Object.values(weeklyPlan).map((day) =>
 			meals.push({ meals: day.meals, nutrients: day.nutrients })
 		);
 		json.days = meals;
+		json.username = cookies.username;
 		return json;
 	};
 
 	const savePlan = () => {
 		let json = createJsonToSave();
-		console.log(json);
 		Axios.post(API_URL_SAVE, {
-			weeklyPlanRequest: json,
+			headers: { "Content-Type": "application/json", dataType: "json" },
+			username: json.username,
+			days: json.days,
 		}).then(
 			(response) => {
 				console.log(response);
