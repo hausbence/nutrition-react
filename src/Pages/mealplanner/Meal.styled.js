@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-let recipeWidth = 100;
+let recipeWidth = 200;
 
 export const StyledMeal = styled.div`
 	margin: 5px;
@@ -9,7 +9,7 @@ export const StyledMeal = styled.div`
 	position: relative;
 	border-radius: 5px;
 	color: #fff;
-	.recipe_image {
+	.meal-image {
 		display: block;
 		width: ${recipeWidth}px;
 		height: ${recipeWidth}px;

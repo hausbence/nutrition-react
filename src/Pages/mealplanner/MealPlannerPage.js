@@ -148,6 +148,7 @@ const MealPlannerPage = () => {
 		}).then(
 			(response) => {
 				console.log(response);
+				setMessage("Succesfull save!");
 			},
 			(error) => {
 				console.log(error);
@@ -222,13 +223,13 @@ const MealPlannerPage = () => {
 							Generate plan
 						</button>
 					</div>
-					{message}
 				</div>
 
 				{weeklyPlan !== undefined && weeklyPlan.length !== 0 ? (
 					<div className="weeklyplan-container">
 						<MealCalendar weeklyPlan={weeklyPlan} />
 						<button onClick={savePlan}>Save</button>
+						{message}
 					</div>
 				) : (
 					""

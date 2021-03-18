@@ -6,16 +6,29 @@ export const StyledMealCalendar = styled.div`
 	margin-bottom: 20px;
 	border-radius: 10px;
 	.day-name {
-		font-size: 13px;
 		text-align: center;
 	}
 	.weekly-plan {
-		background: ${({ theme }) => theme.primaryLight};
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		width: 800px;
 	}
 	.day-container {
-		padding-bottom: 20px;
+		width: 800px;
+		padding: 5px;
+		margin: 5px;
+		border-radius: 5px;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		background: ${({ theme }) => theme.primaryLight};
+	}
+	.day-container h3 {
+		flex-grow: 2;
+		color: ${({ theme }) => theme.primaryDark};
 	}
 `;

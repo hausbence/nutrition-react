@@ -11,19 +11,19 @@ const Meal = (props) => {
 		content = (
 			<Link to={"/recipe/" + meal[0].id} key={meal[0].id}>
 				<StyledMeal>
-					{meal[0].imageType !== undefined ? (
+					{meal[0] !== undefined ? (
 						<img
-							className="recipe_image"
+							className="meal-image"
 							src={
 								"https://spoonacular.com/recipeImages/" +
 								meal[0].id +
-								"-240x150.jpg"
+								"-240x150"
 							}
 							alt={meal[0].title}
 						/>
 					) : (
 						<img
-							className="recipe_image"
+							className="meal-image"
 							src="https://p.kindpng.com/picc/s/79-798754_hoteles-y-centros-vacacionales-dish-placeholder-hd-png.png"
 							alt={meal[0].title}
 						/>
