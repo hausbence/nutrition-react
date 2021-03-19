@@ -25,7 +25,7 @@ const Header = () => {
 				<h1>nutri-core</h1>
 			</div>
 			<div className="username">
-				{cookies.email ? <Link to="profile">{cookies.username}</Link> : null}
+				{cookies.email ? <Link to="plans">{cookies.username}</Link> : null}
 			</div>
 		</StyledHeader>
 	);

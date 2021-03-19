@@ -9,6 +9,7 @@ import RecipePage from "./pages/RecipePage/RecipePage";
 import Search from "./pages/Search";
 import Register from "./pages/account/Register";
 import Login from "./pages/account/Login";
+import Plans from "./pages/Plans";
 import MealPlannerPage from "./pages/mealplanner/MealPlannerPage";
 
 import { Header } from "./components";
@@ -40,6 +41,7 @@ const App = () => {
 							<Route exact path="/mealplanner" component={MealPlannerPage} />
 							<Route exact path="/registration" component={Register} />
 							<Route exact path="/login" component={Login} />
+							<Route exact path="/plans" component={Plans} />
 						</div>
 					</React.Fragment>
 				</Switch>

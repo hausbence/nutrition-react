@@ -56,7 +56,7 @@ const Register = (props) => {
 	return (
 		<StyledForm>
 			<h2 className="loginHeader">Registration</h2>
-			<form onSubmit={handleSubmit(handleRegister)}>
+			<form>
 				<div className="input-fields">
 					<div className="field">
 						<label htmlFor="username">Username</label>
@@ -99,7 +99,7 @@ const Register = (props) => {
 						/>
 					</div>
 				</div>
-				<input type="submit" value="Submit" />
+				<button onClick={handleSubmit(handleRegister)}>Submit</button>
 			</form>
 			{message}
 		</StyledForm>
