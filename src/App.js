@@ -4,13 +4,13 @@ import { ThemeProvider } from "styled-components";
 
 import "./App.css";
 
-import MainPage from "./pages/MainPage";
-import RecipePage from "./pages/RecipePage/RecipePage";
-import Search from "./pages/Search";
-import Register from "./pages/account/Register";
-import Login from "./pages/account/Login";
-import Plans from "./pages/Plans";
-import MealPlannerPage from "./pages/mealplanner/MealPlannerPage";
+import MainPage from "./Pages/MainPage";
+import RecipePage from "./Pages/RecipePage/RecipePage";
+import Search from "./Pages/Search";
+import Register from "./Pages/Account/Register";
+import Login from "./Pages/Account/Login";
+import Plans from "./Pages/Plans";
+import MealPlannerPage from "./Pages/mealplanner/MealPlannerPage";
 
 import { Header } from "./components";
 import { GlobalStyles } from "./components/GlobalStyles";

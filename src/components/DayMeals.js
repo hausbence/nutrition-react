@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Meal from "../pages/mealplanner/Meal";
+import Meal from "../Pages/mealplanner/Meal";
 
 const DayMeals = (props) => {
 	let day = props.day;
