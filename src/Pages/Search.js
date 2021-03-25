@@ -6,12 +6,12 @@ const Search = () => {
 	let { searchTerm } = useParams();
 
 	const [searchUrl, setSearchUrl] = useState(
-		`http://localhost:8080/recipes/${searchTerm}`
+		`https://nutricore.herokuapp.com/recipes/${searchTerm}`
 	);
 
 	useEffect(() => {
 		if (searchTerm) {
-			setSearchUrl(`http://localhost:8080/recipes/${searchTerm}`);
+			setSearchUrl(`https://nutricore.herokuapp.com/recipes/${searchTerm}`);
 		}
 	}, [searchTerm]);
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import RecipeList from "./RecipeList/RecipeList";
 
 const MainPage = (props) => {
-	const [url] = useState("http://localhost:8080/recipes/random");
+	const [url] = useState("https://nutricore.herokuapp.com/recipes/random");
 
 	return (
 		<React.Fragment>

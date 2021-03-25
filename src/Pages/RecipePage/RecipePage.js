@@ -11,8 +11,8 @@ import TabPane from "./tab-pane";
 
 const RecipePage = (props) => {
 	let content;
-	const baseUrl = "http://localhost:8080/recipe/";
-	const baseNutritionUrl = "http://localhost:8080/recipe/nutrition/";
+	const baseUrl = "https://nutricore.herokuapp.com/recipe/";
+	const baseNutritionUrl = "https://nutricore.herokuapp.com/recipe/nutrition/";
 	const [url] = useState(baseUrl + props.match.params.id);
 	const [nutritionUrl] = useState(baseNutritionUrl + props.match.params.id);
 	const [recipe, setRecipe] = useState([]);

@@ -4,7 +4,7 @@ import { useCookies } from "react-cookie";
 import { StyledForm } from "./Forms.styled";
 
 const Login = (props) => {
-	const API_URL = "http://localhost:8080/api/auth/";
+	const API_URL = "https://nutricore.herokuapp.com/api/auth/";
 
 	// eslint-disable-next-line no-unused-vars
 	const [cookies, setCookie, removeCookie] = useCookies([

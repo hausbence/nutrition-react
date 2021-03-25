@@ -5,7 +5,7 @@ import DayMeals from "../components/DayMeals";
 import { StyledPlans } from "./Plans.styled";
 
 const Plans = () => {
-	const API_URL = "http://localhost:8080/plan/generated/";
+	const API_URL = "https://nutricore.herokuapp.com/plan/generated/";
 
 	const [cookies] = useCookies(["username"]);
 	const [days, setDays] = useState([]);

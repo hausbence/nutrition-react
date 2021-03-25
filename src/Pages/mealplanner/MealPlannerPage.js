@@ -21,9 +21,9 @@ const MealPlannerPage = () => {
 	const [message, setMessage] = useState("");
 	const [cookies] = useCookies(["username"]);
 
-	const baseUrl = "http://localhost:8080/ingredients/";
-	const API_URL = "http://localhost:8080/planner/plan/generate";
-	const API_URL_SAVE = "http://localhost:8080/planner/plan/generated/save";
+	const baseUrl = "https://nutricore.herokuapp.com/ingredients/";
+	const API_URL = "https://nutricore.herokuapp.com/planner/plan/generate";
+	const API_URL_SAVE = "https://nutricore.herokuapp.com/planner/plan/generated/save";
 
 	const onChangeCalories = (e) => {
 		const calories = e.target.value;
