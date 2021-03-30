@@ -5,7 +5,7 @@
 On this website you are going to be able to choose from tons of recipes & ingredients for your daily needs of food.
 Create meal plans for a whole week, with 3 or more foods per day seeing their nutrients (protein, fat, carbs etc.) !
 
-![image](./src/main/resources/images/darkmainpage.png)
+![image](https://github.com/hausbence/nutrition/raw/development/src/main/resources/images/darkmainpage.png)
 
 ### Implemented:
 
@@ -18,7 +18,7 @@ Create meal plans for a whole week, with 3 or more foods per day seeing their nu
 - Registration & Login
 - Generate meal plan by given properties
 
-![image](./src/main/resources/images/dark.png)
+![image](https://github.com/hausbence/nutrition/raw/development/src/main/resources/images/dark.png)
 
 ## Technologies: 
 
